@@ -2,17 +2,17 @@
 import { motion } from 'framer-motion'
 
 const features = [
-  {title: 'Accès à vie', desc: 'Guide vidéo et ressources mises à jour à vie.', icon: '💎'},
-  {title: 'KYC étape par étape', desc: 'Accompagnement complet pour éviter les blocages.', icon: '🛂'},
-  {title: 'Prévention de blocage', desc: 'Conseils pratiques pour rester en conformité.', icon: '🛡️'},
-  {title: 'Recharge instantanée', desc: 'Rechargez votre solde à tout moment.', icon: '⚡'}
+  {title: 'Appel 1:1 personnalisé', desc: 'On regarde ta situation ensemble et on te propose la meilleure solution pour toi.', icon: '🎧'},
+  {title: 'Mise en place guidée', desc: 'Pendant l’appel, on te montre exactement quoi faire étape par étape.', icon: '🧭'},
+  {title: 'Questions illimitées', desc: 'Tu peux poser toutes tes questions sur les paiements, les plateformes, la sécurité…', icon: '❓'},
+  {title: 'Suivi après l’appel', desc: 'Si tu bloques après, tu peux revenir vers nous pour qu’on t’aide à débloquer.', icon: '📲'}
 ]
 
 export default function Features(){
   return (
     <section id="features" className="py-16">
-      <h2 className="text-2xl font-semibold">Fonctionnalités</h2>
-      <p className="mt-2 text-slate-400">Tout ce dont vous avez besoin pour utiliser une carte virtuelle en toute sérénité.</p>
+      <h2 className="text-2xl font-semibold">Ce que tu obtiens avec l’appel</h2>
+      <p className="mt-2 text-slate-400">Ce n’est pas un simple guide vidéo — c’est un accompagnement en direct pour que tout soit mis en place correctement.</p>
 
       <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {features.map((f, i) => (

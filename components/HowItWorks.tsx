@@ -2,15 +2,15 @@
 import { motion } from 'framer-motion'
 
 const steps = [
-  {title: 'Payez en ligne', desc: 'Effectuez un paiement sécurisé pour obtenir l’accès.'},
-  {title: 'Recevez le guide vidéo', desc: 'Tutoriel détaillé pas-à-pas pour activer la carte.'},
-  {title: 'Activez & utilisez', desc: 'Utilisez mondialement sur Apple/Google Pay et sites.'}
+  {title: 'Réserve ton créneau', desc: 'Choisis la date et l’heure qui t’arrangent pour l’appel.'},
+  {title: 'Appel en direct avec moi', desc: 'On partage l’écran, on configure ta carte et tes comptes ensemble.'},
+  {title: 'Tu appliques & tu encaisse', desc: 'À la fin de l’appel, tout est prêt pour payer et recevoir sans blocage.'}
 ]
 
 export default function HowItWorks(){
   return (
     <section className="py-16">
-      <h2 className="text-2xl font-semibold">Comment ça marche</h2>
+      <h2 className="text-2xl font-semibold">Comment se passe l’appel</h2>
       <div className="mt-6 flex gap-6 overflow-x-auto py-4">
         {steps.map((s, i) => (
           <motion.div key={s.title} initial={{opacity:0, y:20}} whileInView={{opacity:1, y:0}} viewport={{once:true}} transition={{delay:i*0.12}} className="min-w-[260px] glass p-6 rounded-2xl soft-border">

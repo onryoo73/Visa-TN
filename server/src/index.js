@@ -1,4 +1,7 @@
-require('dotenv').config();
+const path = require('path');
+// Load .env from server folder so ADMIN_TOKEN is always found when running from server/
+require('dotenv').config({ path: path.join(__dirname, '..', '.env') });
+
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
@@ -31,4 +34,7 @@ app.use(errorHandler);
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
+  if (!process.env.ADMIN_TOKEN) {
+    console.warn('WARNING: ADMIN_TOKEN is not set in server/.env — PATCH and DELETE /api/appointments will return 403.');
+  }
 });

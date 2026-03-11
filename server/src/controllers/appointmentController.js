@@ -111,10 +111,10 @@ exports.getAvailableSlots = async (req, res, next) => {
 exports.deleteAppointment = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const appointment = await Appointment.findById(id);
-    if (!appointment) return res.status(404).json({ success: false, message: 'Appointment not found' });
-
-    await appointment.remove();
+    const deleted = await Appointment.findByIdAndDelete(id);
+    if (!deleted) {
+      return res.status(404).json({ success: false, message: 'Appointment not found' });
+    }
     res.json({ success: true, message: 'Appointment deleted' });
   } catch (err) {
     next(err);
