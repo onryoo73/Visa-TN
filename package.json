@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently \"npm run dev --prefix server\" \"next dev\"",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -20,6 +20,7 @@
   "devDependencies": {
     "@types/node": "^20.5.1",
     "@types/react": "^18.2.21",
-    "typescript": "^5.5.0"
+    "typescript": "^5.5.0",
+    "concurrently": "^8.2.0"
   }
 }

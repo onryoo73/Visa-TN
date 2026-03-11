@@ -20,7 +20,7 @@ export default function Hero(){
             </motion.p>
 
             <motion.div initial={{opacity:0, y:12}} animate={{opacity:1, y:0}} transition={{delay:0.18}} className="mt-8 flex gap-4">
-              <a href="#" className="inline-flex items-center px-6 py-3 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium glow-btn shadow-lg hover:scale-105 transform transition">
+              <a href="/booking" className="inline-flex items-center px-6 py-3 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium glow-btn shadow-lg hover:scale-105 transform transition">
                 Get Started
               </a>
               <a href="#features" className="inline-flex items-center px-5 py-3 rounded-2xl bg-transparent border border-slate-700 text-slate-300 hover:bg-white/2 transition">
