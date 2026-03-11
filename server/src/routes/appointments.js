@@ -3,11 +3,11 @@ const router = express.Router();
 const controller = require('../controllers/appointmentController');
 const adminAuth = require('../middleware/adminAuth');
 
-// Public: Create appointment
+// Public: Create appointment (anyone can book)
 router.post('/', controller.createAppointment);
 
-// Public: Get all appointments (frontend list)
-router.get('/', controller.getAppointments);
+// Admin only: list appointments (keeps names/phones private)
+router.get('/', adminAuth, controller.getAppointments);
 
 // Public: Get available slots for a date
 router.get('/available', controller.getAvailableSlots);

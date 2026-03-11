@@ -25,9 +25,12 @@ exports.createAppointment = async (req, res, next) => {
   try {
     const { name, phone, appointmentDate, appointmentTime } = req.body;
 
-    // Basic required field validation
+    // Basic required field validation and length limits
     if (!name || !phone || !appointmentDate || !appointmentTime) {
       return res.status(400).json({ success: false, message: 'Missing required fields' });
+    }
+    if (String(name).length > 200 || String(phone).length > 30) {
+      return res.status(400).json({ success: false, message: 'Invalid field length' });
     }
 
     // Parse date-only (normalize to start of day)
