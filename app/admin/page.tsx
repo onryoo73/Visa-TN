@@ -11,6 +11,8 @@ type Appointment = {
   createdAt?: string;
 };
 
+// Reviews removed from admin UI
+
 export default function AdminPage() {
   const [appointments, setAppointments] = useState<Appointment[]>([]);
   const [loading, setLoading] = useState(false);
@@ -30,6 +32,7 @@ export default function AdminPage() {
   });
   const [tokenInput, setTokenInput] = useState('');
   const [feedback, setFeedback] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
+  
 
   // Fetch appointments from API
   const fetchAppointments = async () => {
@@ -56,6 +59,10 @@ export default function AdminPage() {
   useEffect(() => {
     fetchAppointments();
   }, []);
+
+  
+
+  // Review deletion removed from admin dashboard (UI-only)
 
   // Filtered & searched list
   const visible = useMemo(() => {
@@ -369,6 +376,8 @@ export default function AdminPage() {
             </div>
           )}
         </div>
+
+        {/* Reviews management removed from admin dashboard (UI-only) */}
       </div>
     </div>
   );
