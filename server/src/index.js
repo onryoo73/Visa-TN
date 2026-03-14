@@ -30,7 +30,10 @@ app.use(morgan('dev'));
 
 // CORS: restrict in production to your frontend origin
 const corsOrigin = process.env.CORS_ORIGIN || '*';
-app.use(cors({ origin: corsOrigin === '*' ? true : corsOrigin.split(',').map((o) => o.trim()) }));
+app.use(cors({
+  origin: corsOrigin === '*' ? true : corsOrigin.split(',').map((o) => o.trim()),
+  credentials: true
+}));
 
 // Rate limit: prevent abuse (e.g. booking spam)
 const limiter = rateLimit({
