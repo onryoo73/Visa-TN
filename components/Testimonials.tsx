@@ -14,7 +14,9 @@ type Review = { _id: string; name: string; quote: string; rating?: number }
 export default function Testimonials() {
   const [reviews, setReviews] = useState<Review[]>([])
   const [loading, setLoading] = useState(true)
+  const [index, setIndex] = useState(0)
 
+  // Fetch reviews from API
   useEffect(() => {
     const API = process.env.NEXT_PUBLIC_API_URL || ''
     const url = API ? `${API}/api/reviews` : '/api/reviews'
@@ -27,23 +29,30 @@ export default function Testimonials() {
       .finally(() => setLoading(false))
   }, [])
 
+  const groupSize = 3
+  const maxIndex = Math.ceil(reviews.length / groupSize) - 1
+  const showPrev = () => setIndex((i) => (i === 0 ? maxIndex : i - 1))
+  const showNext = () => setIndex((i) => (i === maxIndex ? 0 : i + 1))
+
+  // Uncomment below to fetch from API
+  // useEffect(() => {
+  //   const API = process.env.NEXT_PUBLIC_API_URL || ''
+  //   const url = API ? `${API}/api/reviews` : '/api/reviews'
+  //   fetch(url)
+  //     .then((res) => res.json())
+  //     .then((json) => {
+  //       if (json?.success && Array.isArray(json.data)) setReviews(json.data)
+  //     })
+  //     .catch(() => setReviews([]))
+  //     .finally(() => setLoading(false))
+  // }, [])
+
   return (
-    <section className="py-24">
+    <section className="py-24 bg-zinc-950">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-14 flex flex-col justify-center items-center sm:flex-row sm:items-center sm:justify-between max-sm:gap-8">
-          <h2 className="text-4xl text-center font-bold text-gray-900 lg:text-left">Testimonials</h2>
-          <div className="flex items-center gap-8">
-            <button id="slider-button-left" className="swiper-button-prev group flex justify-center items-center border border-solid border-indigo-600 w-12 h-12 transition-all duration-500 rounded-full hover:bg-indigo-600" aria-label="Previous">
-              <svg className="h-6 w-6 text-indigo-600 group-hover:text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20.9999 12L4.99992 12M9.99992 6L4.70703 11.2929C4.3737 11.6262 4.20703 11.7929 4.20703 12C4.20703 12.2071 4.3737 12.3738 4.70703 12.7071L9.99992 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-            <button id="slider-button-right" className="swiper-button-next group flex justify-center items-center border border-solid border-indigo-600 w-12 h-12 transition-all duration-500 rounded-full hover:bg-indigo-600" aria-label="Next">
-              <svg className="h-6 w-6 text-indigo-600 group-hover:text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 12L19 12M14 18L19.2929 12.7071C19.6262 12.3738 19.7929 12.2071 19.7929 12C19.7929 11.7929 19.6262 11.6262 19.2929 11.2929L14 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-          </div>
+        <div className="mb-14">
+          <h2 className="text-3xl font-bold text-white mb-4">Customers Feedback</h2>
+          <p className="text-white text-lg mb-6">From career changes to dream jobs, here's how Shadcn Studio helped.</p>
         </div>
         {loading ? (
           <div className="mt-6 flex justify-center py-8">
@@ -52,27 +61,43 @@ export default function Testimonials() {
         ) : reviews.length === 0 ? (
           <p className="mt-6 text-slate-500 text-sm">Aucun avis pour le moment.</p>
         ) : (
-          <Swiper
-            modules={[Grid, Autoplay]}
-            navigation={{ nextEl: '#slider-button-right', prevEl: '#slider-button-left' }}
-            loop={true}
-            centeredSlides={true}
-            spaceBetween={28}
-            slidesPerView={3}
-            autoplay={{ delay: 3000, disableOnInteraction: false }}
-            breakpoints={{
-              0: { slidesPerView: 1, spaceBetween: 20, centeredSlides: false },
-              768: { slidesPerView: 2, spaceBetween: 28, centeredSlides: true },
-              1024: { slidesPerView: 3, spaceBetween: 32 },
-            }}
-            className="mySwiper lg:flex grid grid-cols-1 md:grid-cols-2 justify-center items-center gap-8"
-          >
-            {reviews.map((t) => (
-              <SwiperSlide key={t._id} className="swiper-slide group bg-white border border-solid border-gray-300 rounded-2xl p-6 transition-all duration-500 w-full hover:border-indigo-600">
-                <ReviewCard name={t.name} quote={t.quote} rating={t.rating} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          <div className="relative flex items-center justify-center mt-12">
+            <button
+              onClick={showPrev}
+              className="absolute left-0 z-10 group flex justify-center items-center border border-solid border-indigo-600 w-12 h-12 rounded-full bg-zinc-900/80 hover:bg-indigo-600 transition-all duration-300 shadow-lg"
+              aria-label="Previous"
+              style={{ top: '50%', transform: 'translateY(-50%)' }}
+            >
+              <svg className="h-6 w-6 text-indigo-600 group-hover:text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-4xl px-8 md:px-0">
+              {(() => {
+                const start = index * groupSize;
+                const end = start + groupSize;
+                const group = reviews.slice(start, end);
+                return Array.from({ length: groupSize }).map((_, i) => {
+                  const review = group[i];
+                  return review ? (
+                    <ReviewCard key={review._id} name={review.name} quote={review.quote} rating={review.rating} />
+                  ) : (
+                    <div key={i} className="invisible" />
+                  );
+                });
+              })()}
+            </div>
+            <button
+              onClick={showNext}
+              className="absolute right-0 z-10 group flex justify-center items-center border border-solid border-indigo-600 w-12 h-12 rounded-full bg-zinc-900/80 hover:bg-indigo-600 transition-all duration-300 shadow-lg"
+              aria-label="Next"
+              style={{ top: '50%', transform: 'translateY(-50%)' }}
+            >
+              <svg className="h-6 w-6 text-indigo-600 group-hover:text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          </div>
         )}
       </div>
     </section>
