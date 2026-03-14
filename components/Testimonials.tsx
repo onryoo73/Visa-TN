@@ -50,8 +50,8 @@ export default function Testimonials() {
     <section className="py-24 bg-zinc-950">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-14">
-          <h2 className="text-3xl font-bold text-white mb-4">Customers Feedback</h2>
-          <p className="text-white text-lg mb-6">From career changes to dream jobs, here's how Shadcn Studio helped.</p>
+          <h2 className="text-3xl font-bold text-white mb-4">Avis des clients</h2>
+          <p className="text-white text-lg mb-6">Découvrez ce que nos clients pensent de leur expérience avec VCard</p>
         </div>
         {loading ? (
           <div className="mt-6 flex justify-center py-8">
