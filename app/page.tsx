@@ -12,9 +12,12 @@ export default function Page(){
       <main className="max-w-6xl mx-auto px-6 sm:px-8">
         <Features />
         <HowItWorks />
-        <div className="mt-8 flex flex-col lg:flex-row gap-6 items-start">
-          <ReviewForm />
+        <div className="mt-8">
+          
           <Testimonials />
+        </div>
+        <div className="mt-8">
+          <ReviewForm />
         </div>
         <FAQ />
       </main>
