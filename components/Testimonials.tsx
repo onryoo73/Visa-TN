@@ -34,18 +34,17 @@ export default function Testimonials() {
   const showPrev = () => setIndex((i) => (i === 0 ? maxIndex : i - 1))
   const showNext = () => setIndex((i) => (i === maxIndex ? 0 : i + 1))
 
-  // Uncomment below to fetch from API
-  // useEffect(() => {
-  //   const API = process.env.NEXT_PUBLIC_API_URL || ''
-  //   const url = API ? `${API}/api/reviews` : '/api/reviews'
-  //   fetch(url)
-  //     .then((res) => res.json())
-  //     .then((json) => {
-  //       if (json?.success && Array.isArray(json.data)) setReviews(json.data)
-  //     })
-  //     .catch(() => setReviews([]))
-  //     .finally(() => setLoading(false))
-  // }, [])
+   useEffect(() => {
+     const API = process.env.NEXT_PUBLIC_API_URL || ''
+     const url = API ? `${API}/api/reviews` : '/api/reviews'
+     fetch(url)
+       .then((res) => res.json())
+       .then((json) => {
+         if (json?.success && Array.isArray(json.data)) setReviews(json.data)
+       })
+       .catch(() => setReviews([]))
+       .finally(() => setLoading(false))
+   }, [])
 
   return (
     <section className="py-24 bg-zinc-950">
