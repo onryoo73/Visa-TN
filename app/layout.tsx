@@ -14,7 +14,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="fr">
       <head>
         {/* Optional if you want to override metadata */}
-        <link rel="icon" href="/favicon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
       </head>
       <body className="antialiased">
         <main className="min-h-screen">
