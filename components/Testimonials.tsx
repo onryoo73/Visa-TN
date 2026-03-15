@@ -3,20 +3,18 @@ import { useEffect, useState } from 'react'
 import ReviewCard from './ReviewCard'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
-import 'swiper/css/grid'
+import 'swiper/css/navigation'
 import 'swiper/css/autoplay'
 import SwiperCore from 'swiper'
-import { Autoplay, Grid } from 'swiper/modules'
-SwiperCore.use([Autoplay, Grid])
+import { Autoplay, Navigation } from 'swiper/modules'
+SwiperCore.use([Autoplay, Navigation])
 
 type Review = { _id: string; name: string; quote: string; rating?: number }
 
 export default function Testimonials() {
   const [reviews, setReviews] = useState<Review[]>([])
   const [loading, setLoading] = useState(true)
-  const [index, setIndex] = useState(0)
 
-  // Fetch reviews from API
   useEffect(() => {
     const API = process.env.NEXT_PUBLIC_API_URL || ''
     const url = API ? `${API}/api/reviews` : '/api/reviews'
@@ -28,23 +26,6 @@ export default function Testimonials() {
       .catch(() => setReviews([]))
       .finally(() => setLoading(false))
   }, [])
-
-  const groupSize = 3
-  const maxIndex = Math.ceil(reviews.length / groupSize) - 1
-  const showPrev = () => setIndex((i) => (i === 0 ? maxIndex : i - 1))
-  const showNext = () => setIndex((i) => (i === maxIndex ? 0 : i + 1))
-
-   useEffect(() => {
-     const API = process.env.NEXT_PUBLIC_API_URL || ''
-     const url = API ? `${API}/api/reviews` : '/api/reviews'
-     fetch(url)
-       .then((res) => res.json())
-       .then((json) => {
-         if (json?.success && Array.isArray(json.data)) setReviews(json.data)
-       })
-       .catch(() => setReviews([]))
-       .finally(() => setLoading(false))
-   }, [])
 
   return (
     <section className="py-24 bg-zinc-950">
@@ -60,39 +41,44 @@ export default function Testimonials() {
         ) : reviews.length === 0 ? (
           <p className="mt-6 text-slate-500 text-sm">Aucun avis pour le moment.</p>
         ) : (
-          <div className="relative flex items-center justify-center mt-12">
-            <button
-              onClick={showPrev}
-              className="absolute left-0 z-10 group flex justify-center items-center border border-solid border-indigo-600 w-12 h-12 rounded-full bg-zinc-900/80 hover:bg-indigo-600 transition-all duration-300 shadow-lg"
-              aria-label="Previous"
-              style={{ top: '50%', transform: 'translateY(-50%)' }}
+          <div className="relative mt-12 px-12 md:px-16">
+            <Swiper
+              spaceBetween={24}
+              slidesPerView={1}
+              navigation={{
+                prevEl: '.swiper-button-prev-custom',
+                nextEl: '.swiper-button-next-custom',
+              }}
+              autoplay={{ delay: 5000, disableOnInteraction: false }}
+              loop={reviews.length > 3}
+              breakpoints={{
+                640: { slidesPerView: 1 },
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+              }}
+              className="!overflow-visible"
             >
-              <svg className="h-6 w-6 text-indigo-600 group-hover:text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              {reviews.map((review) => (
+                <SwiperSlide key={review._id}>
+                  <ReviewCard name={review.name} quote={review.quote} rating={review.rating} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            
+            {/* Custom Navigation Buttons */}
+            <button
+              className="swiper-button-prev-custom absolute left-0 top-1/2 -translate-y-1/2 z-10 group flex justify-center items-center border border-solid border-indigo-600 w-10 h-10 md:w-12 md:h-12 rounded-full bg-zinc-900/80 hover:bg-indigo-600 transition-all duration-300 shadow-lg"
+              aria-label="Previous"
+            >
+              <svg className="h-5 w-5 md:h-6 md:w-6 text-indigo-600 group-hover:text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-4xl px-8 md:px-0">
-              {(() => {
-                const start = index * groupSize;
-                const end = start + groupSize;
-                const group = reviews.slice(start, end);
-                return Array.from({ length: groupSize }).map((_, i) => {
-                  const review = group[i];
-                  return review ? (
-                    <ReviewCard key={review._id} name={review.name} quote={review.quote} rating={review.rating} />
-                  ) : (
-                    <div key={i} className="invisible" />
-                  );
-                });
-              })()}
-            </div>
             <button
-              onClick={showNext}
-              className="absolute right-0 z-10 group flex justify-center items-center border border-solid border-indigo-600 w-12 h-12 rounded-full bg-zinc-900/80 hover:bg-indigo-600 transition-all duration-300 shadow-lg"
+              className="swiper-button-next-custom absolute right-0 top-1/2 -translate-y-1/2 z-10 group flex justify-center items-center border border-solid border-indigo-600 w-10 h-10 md:w-12 md:h-12 rounded-full bg-zinc-900/80 hover:bg-indigo-600 transition-all duration-300 shadow-lg"
               aria-label="Next"
-              style={{ top: '50%', transform: 'translateY(-50%)' }}
             >
-              <svg className="h-6 w-6 text-indigo-600 group-hover:text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg className="h-5 w-5 md:h-6 md:w-6 text-indigo-600 group-hover:text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
