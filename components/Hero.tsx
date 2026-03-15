@@ -75,7 +75,7 @@ export default function Hero(){
                 </div>
                 <div className="text-right">
                   <div className="text-xs text-slate-400">Solde disponible</div>
-                  <div className="text-lg font-semibold">€1,250.00</div>
+                  <div className="text-lg font-semibold">$1,250.00</div>
                 </div>
               </div>
 
