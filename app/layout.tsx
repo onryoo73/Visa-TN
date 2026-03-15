@@ -2,19 +2,28 @@ import '../styles/globals.css'
 import { ReactNode } from 'react'
 
 export const metadata = {
-  title: 'Carte Virtuelle Internationale — Visa Guide',
-  description: 'Guide premium pour paiement en ligne et activation mondiale de cartes virtuelles.',
+  title: 'vCardTN — Carte Virtuelle Internationale & Visa Guide',
+  description: 'vCardTN - Guide premium pour paiement en ligne et activation mondiale de cartes virtuelles.',
+  keywords: ['vcardtn', 'carte virtuelle', 'visa', 'paiement en ligne', 'carte bancaire virtuelle'],
   icons: {
-    icon: '/favicon.png', // <- path to your favicon in /public
+    icon: [
+      { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon.png', sizes: '192x192', type: 'image/png' },
+      { url: '/favicon.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/favicon.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
+  manifest: '/site.webmanifest',
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
       <head>
-        {/* Optional if you want to override metadata */}
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+        {/* Favicon is now handled by metadata */}
       </head>
       <body className="antialiased">
         <main className="min-h-screen">
