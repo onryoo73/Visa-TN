@@ -41,7 +41,7 @@ export default function Testimonials() {
         ) : reviews.length === 0 ? (
           <p className="mt-6 text-slate-500 text-sm">Aucun avis pour le moment.</p>
         ) : (
-          <div className="relative mt-12 px-12 md:px-16">
+          <div className="relative mt-12 px-12 md:px-16 max-w-6xl mx-auto">
             <Swiper
               spaceBetween={24}
               slidesPerView={1}
@@ -56,7 +56,7 @@ export default function Testimonials() {
                 768: { slidesPerView: 2 },
                 1024: { slidesPerView: 3 },
               }}
-              className="!overflow-visible"
+              className="!overflow-hidden rounded-xl"
             >
               {reviews.map((review) => (
                 <SwiperSlide key={review._id}>
