@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
-export default function BookingForm({ variant = 'light' }: { variant?: 'light' | 'dark' }) {
+export default function BookingForm({ variant = 'dark' }: { variant?: 'light' | 'dark' }) {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [date, setDate] = useState('');
@@ -11,58 +12,26 @@ export default function BookingForm({ variant = 'light' }: { variant?: 'light' |
   const [messageType, setMessageType] = useState<'success' | 'error' | null>(null);
   const [errors, setErrors] = useState<{ [k: string]: string }>({});
 
-  const isDark = variant === 'dark';
-  const t = isDark
-    ? {
-        title: 'Réserver mon créneau',
-        subtitle: 'En 1 min. Je te recontacte pour confirmer l’heure de l’appel.',
-        nameLabel: 'Nom',
-        namePlaceholder: 'Ton nom',
-        phoneLabel: 'Téléphone',
-        phonePlaceholder: 'ex. +216 12 345 678',
-        dateLabel: 'Date qui t’arrange',
-        timeLabel: 'Heure',
-        submit: 'Envoyer ma demande',
-        submitting: 'Envoi…',
-        success: 'C’est envoyé. Je te recontacte rapidement pour confirmer.',
-        errorGeneric: 'Une erreur s’est produite. Réessaie ou contacte-moi directement.',
-        errorNetwork: 'Problème de connexion. Réessaie.',
-        footer: 'En envoyant ce formulaire, tu acceptes d’être recontacté pour ton rendez-vous.',
-        errName: 'Merci de mettre ton nom.',
-        errPhone: 'Merci de mettre ton numéro.',
-        errDate: 'Choisis une date.',
-        errTime: 'Choisis une heure.',
-      }
-    : {
-        title: 'Book an appointment',
-        subtitle: 'It takes less than a minute. We’ll contact you to confirm the final time.',
-        nameLabel: 'Full name',
-        namePlaceholder: 'Your name',
-        phoneLabel: 'Phone number',
-        phonePlaceholder: 'e.g. +1 555 123 4567',
-        dateLabel: 'Preferred date',
-        timeLabel: 'Preferred time',
-        submit: 'Book appointment',
-        submitting: 'Booking…',
-        success: 'Appointment created successfully',
-        errorGeneric: 'Error creating appointment',
-        errorNetwork: 'Network error, please try again.',
-        footer: 'By sending this form you agree to be contacted about your appointment request.',
-        errName: 'Name is required',
-        errPhone: 'Phone number is required',
-        errDate: 'Choose a date',
-        errTime: 'Choose a time',
-      };
-  const cardClass = isDark
-    ? 'max-w-md w-full rounded-2xl border border-slate-700/80 bg-slate-900/90 shadow-2xl shadow-black/20 backdrop-blur-sm overflow-hidden'
-    : 'max-w-md w-full rounded-2xl border border-gray-200 bg-white shadow-xl overflow-hidden';
-  const inputBase = isDark
-    ? 'mt-2 block w-full rounded-xl border border-slate-600 bg-slate-800/80 px-4 py-3 text-slate-100 placeholder-slate-500 transition focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/25'
-    : 'mt-2 block w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-900 placeholder-gray-400 transition focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20';
-  const inputError = isDark ? 'border-rose-500/80 focus:border-rose-500 focus:ring-rose-500/25' : 'border-rose-400 focus:ring-rose-500/20';
-  const btnClass = isDark
-    ? 'w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-700 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 transition hover:from-indigo-500 hover:to-indigo-600 hover:shadow-indigo-500/30 disabled:opacity-60 disabled:pointer-events-none'
-    : 'w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-700 px-6 py-3.5 text-sm font-semibold text-white shadow-lg transition hover:from-indigo-500 hover:to-indigo-600 disabled:opacity-60 disabled:pointer-events-none';
+  const t = {
+    title: 'Réserver mon appel',
+    subtitle: 'En 1 min. Je te recontacte pour confirmer l\'heure de l\'appel.',
+    nameLabel: 'Nom complet',
+    namePlaceholder: 'Ex: Ahmed Ben Ali',
+    phoneLabel: 'Téléphone',
+    phonePlaceholder: '+216 12 345 678',
+    dateLabel: 'Date qui t\'arrange',
+    timeLabel: 'Heure préférée',
+    submit: 'Réserver mon créneau',
+    submitting: 'Envoi en cours...',
+    success: "✓ C'est envoyé ! Je te recontacte rapidement pour confirmer.",
+    errorGeneric: 'Une erreur s\'est produite. Réessaie ou contacte-moi directement.',
+    errorNetwork: 'Problème de connexion. Réessaie.',
+    footer: "Paiement de 100 TND le jour de l'appel. Remboursement garanti si on n'avance pas.",
+    errName: 'Merci de mettre ton nom.',
+    errPhone: 'Merci de mettre ton numéro.',
+    errDate: 'Choisis une date.',
+    errTime: 'Choisis une heure.',
+  };
 
   const validate = () => {
     const next: { [k: string]: string } = {};
@@ -112,115 +81,225 @@ export default function BookingForm({ variant = 'light' }: { variant?: 'light' |
     }
   };
 
+  const benefits = [
+    { icon: '🎧', text: 'Appel 1:1 personnalisé' },
+    { icon: '⚡', text: 'Configuration en 30-45 min' },
+    { icon: '🛡️', text: 'Garantie satisfait ou remboursé' },
+  ];
+
   return (
-    <form onSubmit={submit} className={cardClass} aria-live="polite">
-      {/* Accent bar */}
-      <div className="h-1 bg-gradient-to-r from-indigo-500 to-purple-600" aria-hidden />
-
-      <div className="p-6 sm:p-8">
-        <div className="mb-6">
-          <h3 className={`text-xl font-semibold tracking-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>{t.title}</h3>
-          <p className={`mt-1.5 text-sm ${isDark ? 'text-slate-400' : 'text-gray-500'}`}>
-            {t.subtitle}
-          </p>
-        </div>
-
-        <div className="space-y-4">
-          <label className="block">
-            <span className={`text-sm font-medium ${isDark ? 'text-slate-200' : 'text-gray-700'}`}>{t.nameLabel}</span>
-            <input
-              aria-label={t.nameLabel}
-              placeholder={t.namePlaceholder}
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className={`${inputBase} ${errors.name ? inputError : ''}`}
-            />
-            {errors.name && <p className="mt-1.5 text-xs text-rose-400">{errors.name}</p>}
-          </label>
-
-          <label className="block">
-            <span className={`text-sm font-medium ${isDark ? 'text-slate-200' : 'text-gray-700'}`}>{t.phoneLabel}</span>
-            <input
-              aria-label={t.phoneLabel}
-              placeholder={t.phonePlaceholder}
-              type="tel"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              className={`${inputBase} ${errors.phone ? inputError : ''}`}
-            />
-            {errors.phone && <p className="mt-1.5 text-xs text-rose-400">{errors.phone}</p>}
-          </label>
-
-          <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-4">
-            <label className="block">
-              <span className={`text-sm font-medium ${isDark ? 'text-slate-200' : 'text-gray-700'}`}>{t.dateLabel}</span>
-              <input
-                type="date"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-                className={`${inputBase} ${errors.date ? inputError : ''}`}
-              />
-              {errors.date && <p className="mt-1.5 text-xs text-rose-400">{errors.date}</p>}
-            </label>
-            <label className="block sm:w-36">
-              <span className={`text-sm font-medium ${isDark ? 'text-slate-200' : 'text-gray-700'}`}>{t.timeLabel}</span>
-              <select
-                value={time}
-                onChange={(e) => setTime(e.target.value)}
-                className={`${inputBase} ${errors.time ? inputError : ''}`}
-              >
-                <option>09:00</option>
-                <option>09:30</option>
-                <option>10:00</option>
-                <option>10:30</option>
-                <option>11:00</option>
-                <option>11:30</option>
-                <option>13:00</option>
-                <option>13:30</option>
-                <option>14:00</option>
-                <option>14:30</option>
-                <option>15:00</option>
-                <option>15:30</option>
-                <option>16:00</option>
-              </select>
-              {errors.time && <p className="mt-1.5 text-xs text-rose-400">{errors.time}</p>}
-            </label>
-          </div>
-        </div>
-
-        {message && (
-          <div
-            className={`mt-4 flex items-start gap-3 rounded-xl px-4 py-3 text-sm ${
-              messageType === 'success'
-                ? isDark
-                  ? 'bg-emerald-500/15 text-emerald-300 border border-emerald-500/30'
-                  : 'bg-emerald-50 text-emerald-800 border border-emerald-200'
-                : isDark
-                ? 'bg-rose-500/15 text-rose-300 border border-rose-500/30'
-                : 'bg-rose-50 text-rose-800 border border-rose-200'
-            }`}
+    <section className="py-16 md:py-24">
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-12">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-bold text-white mb-4"
           >
-            <span className="mt-0.5 shrink-0" aria-hidden>
-              {messageType === 'success' ? '✓' : '!'}
-            </span>
-            <p className="leading-snug">{message}</p>
-          </div>
-        )}
-
-        <div className="mt-6 flex flex-col sm:flex-row sm:items-center gap-4">
-          <button type="submit" disabled={loading} className={btnClass}>
-            {loading && (
-              <span className="h-4 w-4 shrink-0 rounded-full border-2 border-white/40 border-t-transparent animate-spin" />
-            )}
-            {loading ? t.submitting : t.submit}
-          </button>
+            {t.title}
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-slate-400 text-lg"
+          >
+            {t.subtitle}
+          </motion.p>
         </div>
 
-        <p className={`mt-5 flex items-center gap-2 text-xs ${isDark ? 'text-slate-500' : 'text-gray-400'}`}>
-          <span className="text-slate-500" aria-hidden>🔒</span>
-          {t.footer}
-        </p>
+        <div className="grid md:grid-cols-5 gap-8 items-start">
+          {/* Left side - Benefits */}
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="md:col-span-2 space-y-4"
+          >
+            <div className="glass rounded-2xl p-6 soft-border">
+              <h3 className="text-lg font-semibold text-white mb-4">Ce que tu reçois:</h3>
+              <ul className="space-y-3">
+                {benefits.map((benefit, i) => (
+                  <li key={i} className="flex items-center gap-3 text-slate-300">
+                    <span className="text-xl">{benefit.icon}</span>
+                    <span className="text-sm">{benefit.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="glass rounded-2xl p-6 soft-border border-emerald-500/30">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-2xl">💰</span>
+                <span className="text-white font-semibold">Tarif transparent</span>
+              </div>
+              <div className="text-3xl font-bold text-white mb-1">100 TND</div>
+              <p className="text-slate-400 text-sm">Une seule fois. Pas d&apos;abonnement caché.</p>
+            </div>
+
+            <div className="glass rounded-2xl p-6 soft-border">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-2xl">📱</span>
+                <span className="text-white font-semibold">Paiement facile</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <img src="/flouci.png" alt="Flouci" className="h-8 w-auto opacity-90" />
+                <img src="/d17.png" alt="D17" className="h-8 w-auto opacity-90" />
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Right side - Form */}
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="md:col-span-3"
+          >
+            <form onSubmit={submit} className="glass rounded-3xl p-6 md:p-8 soft-border relative overflow-hidden">
+              {/* Gradient accent */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-emerald-500" />
+              
+              <div className="space-y-5">
+                {/* Name */}
+                <div>
+                  <label className="block text-sm font-medium text-slate-200 mb-2">
+                    {t.nameLabel}
+                  </label>
+                  <input
+                    type="text"
+                    placeholder={t.namePlaceholder}
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className={`w-full px-4 py-3.5 rounded-xl bg-slate-900/60 border ${
+                      errors.name ? 'border-rose-500 focus:border-rose-500' : 'border-slate-700 focus:border-indigo-500'
+                    } text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/25 transition-all`}
+                  />
+                  {errors.name && (
+                    <p className="mt-1.5 text-sm text-rose-400 flex items-center gap-1">
+                      <span>!</span> {errors.name}
+                    </p>
+                  )}
+                </div>
+
+                {/* Phone */}
+                <div>
+                  <label className="block text-sm font-medium text-slate-200 mb-2">
+                    {t.phoneLabel}
+                  </label>
+                  <input
+                    type="tel"
+                    placeholder={t.phonePlaceholder}
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className={`w-full px-4 py-3.5 rounded-xl bg-slate-900/60 border ${
+                      errors.phone ? 'border-rose-500 focus:border-rose-500' : 'border-slate-700 focus:border-indigo-500'
+                    } text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/25 transition-all`}
+                  />
+                  {errors.phone && (
+                    <p className="mt-1.5 text-sm text-rose-400 flex items-center gap-1">
+                      <span>!</span> {errors.phone}
+                    </p>
+                  )}
+                </div>
+
+                {/* Date & Time */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-slate-200 mb-2">
+                      {t.dateLabel}
+                    </label>
+                    <input
+                      type="date"
+                      value={date}
+                      onChange={(e) => setDate(e.target.value)}
+                      className={`w-full px-4 py-3.5 rounded-xl bg-slate-900/60 border ${
+                        errors.date ? 'border-rose-500 focus:border-rose-500' : 'border-slate-700 focus:border-indigo-500'
+                      } text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/25 transition-all`}
+                    />
+                    {errors.date && (
+                      <p className="mt-1.5 text-sm text-rose-400">{errors.date}</p>
+                    )}
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-200 mb-2">
+                      {t.timeLabel}
+                    </label>
+                    <select
+                      value={time}
+                      onChange={(e) => setTime(e.target.value)}
+                      className="w-full px-4 py-3.5 rounded-xl bg-slate-900/60 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/25 transition-all appearance-none cursor-pointer"
+                      style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center', backgroundSize: '20px' }}
+                    >
+                      <option value="09:00">09:00</option>
+                      <option value="09:30">09:30</option>
+                      <option value="10:00">10:00</option>
+                      <option value="10:30">10:30</option>
+                      <option value="11:00">11:00</option>
+                      <option value="11:30">11:30</option>
+                      <option value="13:00">13:00</option>
+                      <option value="13:30">13:30</option>
+                      <option value="14:00">14:00</option>
+                      <option value="14:30">14:30</option>
+                      <option value="15:00">15:00</option>
+                      <option value="15:30">15:30</option>
+                      <option value="16:00">16:00</option>
+                      <option value="16:30">16:30</option>
+                      <option value="17:00">17:00</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Message */}
+                {message && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className={`rounded-xl px-4 py-3 text-sm ${
+                      messageType === 'success'
+                        ? 'bg-emerald-500/15 text-emerald-300 border border-emerald-500/30'
+                        : 'bg-rose-500/15 text-rose-300 border border-rose-500/30'
+                    }`}
+                  >
+                    {message}
+                  </motion.div>
+                )}
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-600 text-white font-semibold shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:scale-[1.02] transition-all disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+                >
+                  {loading ? (
+                    <>
+                      <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      {t.submitting}
+                    </>
+                  ) : (
+                    <>
+                      <span>📅</span>
+                      {t.submit}
+                    </>
+                  )}
+                </button>
+
+                {/* Footer note */}
+                <p className="text-center text-slate-500 text-sm flex items-center justify-center gap-2">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                  </svg>
+                  {t.footer}
+                </p>
+              </div>
+            </form>
+          </motion.div>
+        </div>
       </div>
-    </form>
+    </section>
   );
 }
