@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 import { ReactNode } from 'react'
+import SchemaMarkup from '../components/SchemaMarkup'
 
 export const metadata = {
   title: 'vCardTN — Carte Virtuelle Internationale & Visa Guide',
@@ -26,6 +27,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
       <head>
+        <SchemaMarkup />
         {/* Favicon is now handled by metadata */}
       </head>
       <body className="antialiased">

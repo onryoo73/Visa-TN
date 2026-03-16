@@ -1,7 +1,28 @@
 "use client"
 import { motion } from 'framer-motion'
 
+// Animated counter component
+function AnimatedCounter({ end, suffix = "" }: { end: number; suffix?: string }) {
+  return (
+    <motion.span
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="font-bold text-white"
+    >
+      {end}{suffix}
+    </motion.span>
+  )
+}
+
 export default function Hero(){
+  const stats = [
+    { value: 300, suffix: "+", label: "cartes activées" },
+    { value: 500, suffix: "+", label: "appels réussis" },
+    { value: 0, suffix: "", label: "plainte" },
+    { value: 47, suffix: "", label: "avis 5★" }
+  ]
+
   return (
     <section className="relative py-24">
       <div className="absolute inset-0 -z-10 animated-gradient" aria-hidden />
@@ -12,14 +33,21 @@ export default function Hero(){
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <motion.p
+            {/* Trust badges */}
+            <motion.div
               initial={{opacity:0, y:8}}
               animate={{opacity:1, y:0}}
               transition={{delay:0.02}}
-              className="inline-flex items-center px-3 py-1 rounded-full bg-black/30 border border-indigo-400/40 text-[11px] uppercase tracking-[0.16em] text-indigo-100"
+              className="flex flex-wrap items-center gap-3 mb-4"
             >
-              Carte virtuelle & paiements en ligne
-            </motion.p>
+              <span className="inline-flex items-center px-3 py-1 rounded-full bg-black/30 border border-indigo-400/40 text-[11px] uppercase tracking-[0.16em] text-indigo-100">
+                Carte virtuelle & paiements en ligne
+              </span>
+              <div className="flex items-center gap-2">
+                <img src="/flouci.png" alt="Flouci" className="h-6 w-auto opacity-90" />
+                <img src="/d17.png" alt="D17" className="h-6 w-auto opacity-90" />
+              </div>
+            </motion.div>
 
             <motion.h1 initial={{opacity:0, y:12}} animate={{opacity:1, y:0}} transition={{delay:0.08}} className="mt-3 text-4xl sm:text-5xl font-semibold tracking-tight leading-tight text-white">
               Active ta carte virtuelle
@@ -38,7 +66,7 @@ export default function Hero(){
               </a>
               <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-800/80 border border-slate-600 px-4 py-2 text-sm font-medium text-slate-100">
                 <span className="text-indigo-300">100 TND</span>
-                <span className="text-slate-400">— une fois, pas d’abonnement</span>
+                <span className="text-slate-400">— une fois, pas d'abonnement</span>
               </span>
             </motion.div>
 
@@ -54,8 +82,31 @@ export default function Hero(){
               </div>
               <div className="inline-flex items-center gap-2 rounded-full bg-black/30 border border-amber-500/40 px-3 py-1.5">
                 <span className="text-amber-400">✓</span>
-                <span>Garantie : remboursé si on n’avance pas</span>
+                <span>Garantie : remboursé si on n'avance pas</span>
               </div>
+              <div className="inline-flex items-center gap-2 rounded-full bg-black/30 border border-indigo-500/40 px-3 py-1.5">
+                <svg className="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                </svg>
+                <span>Paiement sécurisé SSL</span>
+              </div>
+            </motion.div>
+
+            {/* Stats */}
+            <motion.div
+              initial={{opacity:0, y:20}}
+              animate={{opacity:1, y:0}}
+              transition={{delay:0.4}}
+              className="mt-8 grid grid-cols-4 gap-4 pt-6 border-t border-slate-700/50"
+            >
+              {stats.map((stat, i) => (
+                <div key={i} className="text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-white">
+                    <AnimatedCounter end={stat.value} suffix={stat.suffix} />
+                  </div>
+                  <div className="text-xs text-slate-400 mt-1">{stat.label}</div>
+                </div>
+              ))}
             </motion.div>
           </div>
 
@@ -95,7 +146,7 @@ export default function Hero(){
               </div>
 
               <div className="mt-2 flex items-center justify-between text-xs text-slate-400">
-                <span>Après l’appel</span>
+                <span>Après l'appel</span>
                 <span className="text-emerald-300">Carte prête à utiliser</span>
               </div>
             </div>

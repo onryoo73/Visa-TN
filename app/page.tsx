@@ -4,6 +4,10 @@ import HowItWorks from '../components/HowItWorks'
 import Testimonials from '../components/Testimonials'
 import ReviewForm from '../components/ReviewForm'
 import FAQ from '../components/FAQ'
+import Pricing from '../components/Pricing'
+import Footer from '../components/Footer'
+import WhatsAppWidget from '../components/WhatsAppWidget'
+import CookieConsent from '../components/CookieConsent'
 
 export default function Page(){
   return (
@@ -12,8 +16,8 @@ export default function Page(){
       <main className="max-w-6xl mx-auto px-6 sm:px-8">
         <Features />
         <HowItWorks />
+        <Pricing />
         <div className="mt-8">
-          
           <Testimonials />
         </div>
         <div className="mt-8">
@@ -21,6 +25,9 @@ export default function Page(){
         </div>
         <FAQ />
       </main>
+      <Footer />
+      <WhatsAppWidget />
+      <CookieConsent />
     </div>
   )
 }
