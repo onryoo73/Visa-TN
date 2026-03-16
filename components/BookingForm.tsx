@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import SuccessModal from './SuccessModal';
 
 export default function BookingForm({ variant = 'dark' }: { variant?: 'light' | 'dark' }) {
   const [name, setName] = useState('');
@@ -11,6 +12,8 @@ export default function BookingForm({ variant = 'dark' }: { variant?: 'light' | 
   const [message, setMessage] = useState<string | null>(null);
   const [messageType, setMessageType] = useState<'success' | 'error' | null>(null);
   const [errors, setErrors] = useState<{ [k: string]: string }>({});
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [submittedName, setSubmittedName] = useState('');
 
   const t = {
     title: 'Réserver mon appel',
@@ -63,8 +66,8 @@ export default function BookingForm({ variant = 'dark' }: { variant?: 'light' | 
       });
       const json = await res.json();
       if (res.ok) {
-        setMessage(t.success);
-        setMessageType('success');
+        setSubmittedName(name);
+        setShowSuccessModal(true);
         setName('');
         setPhone('');
         setDate('');
@@ -300,6 +303,13 @@ export default function BookingForm({ variant = 'dark' }: { variant?: 'light' | 
           </motion.div>
         </div>
       </div>
+
+      {/* Success Modal */}
+      <SuccessModal 
+        isOpen={showSuccessModal} 
+        onClose={() => setShowSuccessModal(false)} 
+        name={submittedName}
+      />
     </section>
   );
 }
