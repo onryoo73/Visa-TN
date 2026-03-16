@@ -23,10 +23,10 @@ export default function BookingForm({ variant = 'dark' }: { variant?: 'light' | 
     timeLabel: 'Heure préférée',
     submit: 'Réserver mon créneau',
     submitting: 'Envoi en cours...',
-    success: "✓ C'est envoyé ! Je te recontacte rapidement pour confirmer.",
+    success: '✓ C\'est envoyé ! Je te recontacte rapidement pour confirmer.',
     errorGeneric: 'Une erreur s\'est produite. Réessaie ou contacte-moi directement.',
     errorNetwork: 'Problème de connexion. Réessaie.',
-    footer: "Paiement de 100 TND le jour de l'appel. Remboursement garanti si on n'avance pas.",
+    footer: 'Paiement de 100 TND le jour de l\'appel. Remboursement garanti si on n\'avance pas.',
     errName: 'Merci de mettre ton nom.',
     errPhone: 'Merci de mettre ton numéro.',
     errDate: 'Choisis une date.',
@@ -89,7 +89,7 @@ export default function BookingForm({ variant = 'dark' }: { variant?: 'light' | 
 
   return (
     <section className="py-16 md:py-24">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-5xl mx-auto px-6">
         <div className="text-center mb-12">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
