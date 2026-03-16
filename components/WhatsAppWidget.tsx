@@ -53,7 +53,7 @@ export default function WhatsAppWidget() {
               </div>
 
               <a 
-                href="https://wa.me/21612345678?text=Salut%2C%20j'ai%20une%20question%20sur%20vCardTN"
+                href="https://wa.me/21655921442?text=Salut%2C%20j'ai%20une%20question%20sur%20vCardTN"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full bg-emerald-500 text-white text-center py-3 rounded-xl font-semibold hover:bg-emerald-600 transition"
