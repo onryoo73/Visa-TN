@@ -5,6 +5,28 @@ This is a production-ready Express + MongoDB backend for an appointment booking 
 Environment
 - Copy `.env.example` to `.env` and set `MONGODB_URI` and `PORT`.
 
+Telegram Notifications (Optional)
+To get instant phone notifications when someone books:
+
+1. Open Telegram, search for **@BotFather** and create a new bot
+   - Send `/newbot`, follow instructions
+   - Save the **bot token** (looks like: `123456789:ABCdefGHIjklMNOpqrSTUvwxyz`)
+
+2. Search **@userinfobot** and send any message to get your **Chat ID**
+
+3. Add to your `.env`:
+   ```
+   TELEGRAM_BOT_TOKEN=your_bot_token_here
+   TELEGRAM_CHAT_ID=your_chat_id_here
+   ```
+
+4. You'll now receive instant notifications like:
+   > 🎉 **Nouveau rendez-vous vCardTN !**
+   > 👤 **Client:** Ahmed Ben Ali
+   > 📞 **Téléphone:** +216 55 921 442
+   > 📅 **Date:** lundi 20 mars 2026
+   > ⏰ **Heure:** 14:30
+
 Install & Run
 
 ```bash

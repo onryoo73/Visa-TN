@@ -1,4 +1,5 @@
 const Appointment = require('../models/Appointment');
+const { sendBookingNotification } = require('../services/telegramService');
 
 // Helper: parse a date string (YYYY-MM-DD or ISO) and return a Date at start of day (00:00)
 const parseDateOnly = (dateStr) => {
@@ -53,6 +54,11 @@ exports.createAppointment = async (req, res, next) => {
 
     // Create the appointment (appointmentDate stored as date-only)
     const appointment = await Appointment.create({ name, phone, appointmentDate: dateOnly, appointmentTime });
+
+    // Send Telegram notification (non-blocking, don't wait for it)
+    sendBookingNotification({ name, phone, appointmentDate: dateOnly, appointmentTime }).catch(err => {
+      console.error('Telegram notification failed:', err);
+    });
 
     return res.status(201).json({ success: true, message: 'Appointment created', data: appointment });
   } catch (err) {
