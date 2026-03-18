@@ -1,3 +1,4 @@
+"use client"  // ← Add this
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
