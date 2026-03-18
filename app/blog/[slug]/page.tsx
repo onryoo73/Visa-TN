@@ -233,22 +233,49 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="prose prose-invert prose-lg max-w-none"
-          dangerouslySetInnerHTML={{ 
-            __html: post.content
-              .replace(/\n/g, '<br>')
-              .replace(/#{1,6}\s/g, match => {
-                const level = match.trim().length;
-                return `<h${level} class="text-2xl md:text-3xl font-bold text-white mt-8 mb-4">`;
-              })
-              .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-              .replace(/^- (.+)$/gm, '<li class="text-slate-300 ml-4">• $1</li>')
-              .replace(/<li/g, '<ul class="space-y-2 mb-4"><li')
-              .replace(/<\/li>/g, '</li></ul>')
-              .replace(/✅/g, '<span class="text-emerald-400">✅</span>')
-              .replace(/🔒/g, '<span class="text-amber-400">🔒</span>')
-          }}
-        />
+          className="prose prose-invert prose-lg max-w-none text-slate-300"
+        >
+          <div className="whitespace-pre-line">
+            {post.content
+              .split('\n')
+              .map((line, i) => {
+                if (line.startsWith('######')) {
+                  return <h6 key={i} className="text-xl font-bold text-white mt-8 mb-4">{line.slice(6).trim()}</h6>
+                }
+                if (line.startsWith('#####')) {
+                  return <h5 key={i} className="text-2xl font-bold text-white mt-8 mb-4">{line.slice(5).trim()}</h5>
+                }
+                if (line.startsWith('####')) {
+                  return <h4 key={i} className="text-2xl md:text-3xl font-bold text-white mt-8 mb-4">{line.slice(4).trim()}</h4>
+                }
+                if (line.startsWith('###')) {
+                  return <h3 key={i} className="text-2xl md:text-3xl font-bold text-white mt-8 mb-4">{line.slice(3).trim()}</h3>
+                }
+                if (line.startsWith('##')) {
+                  return <h2 key={i} className="text-2xl md:text-3xl font-bold text-white mt-8 mb-4">{line.slice(2).trim()}</h2>
+                }
+                if (line.startsWith('#')) {
+                  return <h1 key={i} className="text-3xl md:text-4xl font-bold text-white mt-8 mb-4">{line.slice(1).trim()}</h1>
+                }
+                if (line.startsWith('- ')) {
+                  return <li key={i} className="text-slate-300 ml-4">• {line.slice(2).trim()}</li>
+                }
+                if (line.startsWith('1.') || line.startsWith('2.') || line.startsWith('3.') || line.startsWith('4.') || line.startsWith('5.')) {
+                  return <p key={i} className="text-slate-300 ml-4 mb-2"><strong className="text-white">{line}</strong></p>
+                }
+                if (line.startsWith('✅')) {
+                  return <p key={i} className="text-slate-300"><span className="text-emerald-400">✅</span> {line.slice(2).trim()}</p>
+                }
+                if (line.startsWith('🔒')) {
+                  return <p key={i} className="text-slate-300"><span className="text-amber-400">🔒</span> {line.slice(2).trim()}</p>
+                }
+                if (line.trim() === '') {
+                  return <br key={i} />
+                }
+                return <p key={i} className="text-slate-300 mb-4">{line}</p>
+              })}
+          </div>
+        </motion.div>
 
         {/* CTA */}
         <motion.div
