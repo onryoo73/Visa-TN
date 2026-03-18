@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 import { ReactNode } from 'react'
 import SchemaMarkup from '../components/SchemaMarkup'
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata = {
   title: 'vCardTN — Carte Virtuelle Internationale & Visa Guide',
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="antialiased">
         <main className="min-h-screen">
           {children}
+          <Analytics />
         </main>
       </body>
     </html>
