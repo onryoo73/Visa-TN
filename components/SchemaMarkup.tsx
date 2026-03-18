@@ -85,7 +85,7 @@ export default function SchemaMarkup() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema ) }}
       />
       <script
         type="application/ld+json"
