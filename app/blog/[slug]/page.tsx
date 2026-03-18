@@ -1,7 +1,5 @@
-"use client"  // ← Add this
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 
 // Blog posts data
 const posts = {
@@ -211,11 +209,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
         </nav>
 
         {/* Header */}
-        <motion.header
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-8"
-        >
+        <header className="mb-8">
           <span className="inline-block px-3 py-1 bg-indigo-600 text-white text-xs font-medium rounded-full mb-4">
             {post.category}
           </span>
@@ -227,15 +221,10 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
             <span>•</span>
             <span>{post.readTime} de lecture</span>
           </div>
-        </motion.header>
+        </header>
 
         {/* Content */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="prose prose-invert prose-lg max-w-none text-slate-300"
-        >
+        <div className="prose prose-invert prose-lg max-w-none text-slate-300">
           <div className="whitespace-pre-line">
             {post.content
               .split('\n')
@@ -276,15 +265,10 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
                 return <p key={i} className="text-slate-300 mb-4">{line}</p>
               })}
           </div>
-        </motion.div>
+        </div>
 
         {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="mt-12 glass rounded-2xl p-8 soft-border"
-        >
+        <div className="mt-12 glass rounded-2xl p-8 soft-border">
           <h3 className="text-xl font-semibold text-white mb-3">
             Besoin d'aide pour votre carte ?
           </h3>
@@ -300,7 +284,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13 2.257a1 1 0 001.21.502l4.493 1.498a1 1 0 00.684-.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
             </svg>
           </Link>
-        </motion.div>
+        </div>
       </article>
     </div>
   );
