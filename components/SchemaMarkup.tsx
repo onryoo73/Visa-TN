@@ -8,14 +8,14 @@ export default function SchemaMarkup() {
       "@type": "LocalBusiness",
       "name": "vCardTN",
       "url": "https://www.vcardtn.site",
-      "telephone": "+21612345678",
+      "telephone": "+21655921442",
       "email": "contact@vcardtn.site",
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "TN",
         "addressLocality": "Tunis"
       },
-      "priceRange": "$$",
+      "priceRange": "$",
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
@@ -38,7 +38,7 @@ export default function SchemaMarkup() {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.8",
-      "reviewCount": "47"
+      "reviewCount": "8"
     }
   }
 
@@ -85,7 +85,7 @@ export default function SchemaMarkup() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema ) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
       />
       <script
         type="application/ld+json"
