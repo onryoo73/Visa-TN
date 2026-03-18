@@ -6,7 +6,7 @@ import { Analytics } from '@vercel/analytics/next';
 export const metadata = {
   title: 'vCardTN — Carte Virtuelle Internationale & Visa Guide',
   description: 'vCardTN - Guide premium pour paiement en ligne et activation mondiale de cartes virtuelles.',
-  keywords: ['vcardtn', 'carte virtuelle', 'visa', 'paiement en ligne', 'carte bancaire virtuelle'],
+  keywords: ['vcardtn', 'carte virtuelle', 'visa', 'paiement en ligne', 'carte bancaire virtuelle', 'carte prepaid tunisie', 'carte internationale tunisie', 'flouci', 'd17', 'achat en ligne tunisie', 'netflix tunisie', 'carte virtuelle tunisie'],
   verification: {
     google: '4351bPzEinu_WuQr1MI8Mt2oWTEgR_PGbPmpSmzm-OY',
   },

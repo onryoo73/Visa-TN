@@ -5,6 +5,7 @@ import Testimonials from '../components/Testimonials'
 import ReviewForm from '../components/ReviewForm'
 import FAQ from '../components/FAQ'
 import Pricing from '../components/Pricing'
+import Blog from '../components/Blog'
 import Footer from '../components/Footer'
 import WhatsAppWidget from '../components/WhatsAppWidget'
 import CookieConsent from '../components/CookieConsent'
@@ -17,7 +18,10 @@ export default function Page(){
         <Features />
         <HowItWorks />
         <Pricing />
-        <div className="mt-8">
+        <div className="mt-16">
+          <Blog />
+        </div>
+        <div className="mt-16">
           <Testimonials />
         </div>
         <div className="mt-8">
