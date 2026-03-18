@@ -17,10 +17,10 @@ function AnimatedCounter({ end, suffix = "" }: { end: number; suffix?: string })
 
 export default function Hero(){
   const stats = [
-    { value: 300, suffix: "+", label: "cartes activées" },
-    { value: 500, suffix: "+", label: "appels réussis" },
+    { value: 12, suffix: "+", label: "cartes activées" },
+    { value: 15, suffix: "+", label: "appels réussis" },
     { value: 0, suffix: "", label: "plainte" },
-    { value: 47, suffix: "", label: "avis 5★" }
+    { value: 8, suffix: "", label: "avis 5★" }
   ]
 
   return (
