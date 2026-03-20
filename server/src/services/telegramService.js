@@ -82,8 +82,9 @@ module.exports = { sendBookingNotification };
  * @param {number} topUp.tndAmount - TND amount to pay
  */
 async function sendTopUpNotification(topUp) {
-  const botToken = process.env.TELEGRAM_BOT_TOKEN;
-  const chatId = process.env.TELEGRAM_CHAT_ID;
+  // Use separate bot credentials for top-up notifications
+  const botToken = process.env.TOPUP_TELEGRAM_BOT_TOKEN || process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TOPUP_TELEGRAM_CHAT_ID || process.env.TELEGRAM_CHAT_ID;
 
   // Skip if not configured
   if (!botToken || !chatId) {
