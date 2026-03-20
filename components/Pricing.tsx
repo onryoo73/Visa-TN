@@ -36,7 +36,10 @@ export default function Pricing() {
               <div className="text-5xl md:text-6xl font-bold text-white mb-2">
                 100 <span className="text-2xl text-slate-400">TND</span>
               </div>
-              <p className="text-slate-400 mb-6">Paiement unique, valable à vie</p>
+              <p className="text-slate-400 mb-2">Paiement unique, valable à vie</p>
+              <p className="text-emerald-400 text-sm font-medium mb-4">
+                50 TND avant l'appel · 50 TND après — pas de risque
+              </p>
               
               {/* Payment methods */}
               <div className="flex items-center justify-center md:justify-start gap-4 mb-6">

@@ -65,8 +65,10 @@ export default function Hero(){
                 Voir ce qui est inclus
               </a>
               <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-800/80 border border-slate-600 px-4 py-2 text-sm font-medium text-slate-100">
-                <span className="text-indigo-300">100 TND</span>
-                <span className="text-slate-400">— une fois, pas d'abonnement</span>
+                <span className="text-indigo-300">50 TND</span>
+                <span className="text-slate-400">pour réserver</span>
+                <span className="text-slate-600">|</span>
+                <span className="text-emerald-400">50 TND après</span>
               </span>
             </motion.div>
 
