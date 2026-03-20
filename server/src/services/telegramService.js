@@ -72,3 +72,61 @@ async function sendBookingNotification(appointment) {
 }
 
 module.exports = { sendBookingNotification };
+
+/**
+ * Send a notification to Telegram when a new top-up is requested
+ * @param {Object} topUp - The top-up object
+ * @param {string} topUp.name - Client name
+ * @param {string} topUp.phone - Client phone
+ * @param {number} topUp.usdAmount - USD amount requested
+ * @param {number} topUp.tndAmount - TND amount to pay
+ */
+async function sendTopUpNotification(topUp) {
+  const botToken = process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID;
+
+  // Skip if not configured
+  if (!botToken || !chatId) {
+    console.log('Telegram not configured, skipping top-up notification');
+    return;
+  }
+
+  const { name, phone, usdAmount, tndAmount } = topUp;
+
+  const message = `
+💰 <b>Nouvelle demande de recharge vCardTN !</b>
+
+👤 <b>Client:</b> ${name}
+📞 <b>Téléphone:</b> ${phone}
+💵 <b>Montant USD:</b> ${usdAmount} USDT
+💰 <b>Prix TND:</b> ${tndAmount} TND
+📊 <b>Taux:</b> 3.2 TND/USDT
+
+🔔 Action requise: Contacter le client pour le paiement et envoyer les USDT.
+  `.trim();
+
+  try {
+    const response = await fetch(`${TELEGRAM_API}${botToken}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: message,
+        parse_mode: 'HTML',
+        disable_notification: false
+      })
+    });
+
+    const data = await response.json();
+    
+    if (data.ok) {
+      console.log('✅ Top-up Telegram notification sent successfully');
+    } else {
+      console.error('❌ Telegram API error:', data.description);
+    }
+  } catch (error) {
+    console.error('❌ Failed to send top-up Telegram notification:', error.message);
+  }
+}
+
+module.exports = { sendBookingNotification, sendTopUpNotification };

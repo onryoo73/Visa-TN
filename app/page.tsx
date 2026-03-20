@@ -5,6 +5,7 @@ import Testimonials from '../components/Testimonials'
 import ReviewForm from '../components/ReviewForm'
 import FAQ from '../components/FAQ'
 import Pricing from '../components/Pricing'
+import TopUp from '../components/TopUp'
 import Blog from '../components/Blog'
 import Footer from '../components/Footer'
 import WhatsAppWidget from '../components/WhatsAppWidget'
@@ -18,6 +19,7 @@ export default function Page(){
         <Features />
         <HowItWorks />
         <Pricing />
+        <TopUp />
         
         <div className="mt-16">
           <Testimonials />
