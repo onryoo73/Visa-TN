@@ -46,7 +46,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-slate-400">
               <li className="flex items-center gap-2">
                 <span>WhatsApp:</span>
-                <a href="https://wa.me/216123456789" className="text-emerald-400 hover:underline">+216 55 921 442</a>
+                <a href="https://wa.me/216123456789" className="text-emerald-400 hover:underline">+216 123456789</a>
               </li>
               <li className="flex items-center gap-2">
                 <span>Email:</span>
