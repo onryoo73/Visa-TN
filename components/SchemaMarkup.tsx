@@ -8,7 +8,7 @@ export default function SchemaMarkup() {
       "@type": "LocalBusiness",
       "name": "vCardTN",
       "url": "https://www.vcardtn.site",
-      "telephone": "+21655921442",
+      "telephone": "+216123456789",
       "email": "contact@vcardtn.site",
       "address": {
         "@type": "PostalAddress",
