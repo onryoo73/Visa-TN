@@ -13,7 +13,7 @@ export default function FAQ(){
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <section className="py-16">
+    <section id="faq" className="py-16">
       <h2 className="text-2xl font-semibold">FAQ</h2>
       <div className="mt-6 space-y-3">
         {faqs.map((f, i) => (
