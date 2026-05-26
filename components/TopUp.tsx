@@ -21,7 +21,7 @@ export default function TopUp() {
           </p>
           <Link
             href="/booking"
-            className="inline-flex items-center px-8 py-4 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold text-lg shadow-lg shadow-indigo-500/25 hover:scale-105 transition"
+            className="inline-flex items-center px-8 py-4 rounded-2xl bg-gradient-to-r from-med-600 to-med-500 text-white font-semibold text-lg shadow-lg shadow-med-500/25 hover:scale-105 transition"
           >
             Prendre rendez-vous
             <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

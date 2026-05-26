@@ -15,7 +15,7 @@ export default function ReviewCard({ name, quote, rating }: Props) {
   return (
     <article className="glass soft-border p-10 rounded-3xl shadow-2xl flex flex-col gap-8 min-h-[220px] w-full max-w-md mx-auto transition hover:shadow-2xl">
       <div className="flex flex-col items-center gap-4">
-        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-500 via-indigo-700 to-zinc-900 flex items-center justify-center text-3xl font-extrabold text-white shadow-lg mb-2 uppercase tracking-widest">
+        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-med-500 via-med-700 to-zinc-900 flex items-center justify-center text-3xl font-extrabold text-white shadow-lg mb-2 uppercase tracking-widest">
           {initials}
         </div>
         <p
@@ -24,7 +24,7 @@ export default function ReviewCard({ name, quote, rating }: Props) {
         >
           “{quote}”
         </p>
-        <footer className="text-base font-semibold text-indigo-200 text-center">— {name}</footer>
+        <footer className="text-base font-semibold text-med-200 text-center">— {name}</footer>
       </div>
       {typeof rating === 'number' && (
         <div className="flex items-center justify-center gap-1 mt-2">

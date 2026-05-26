@@ -162,7 +162,7 @@ export default function BookingForm({ variant = 'dark' }: { variant?: 'light' | 
           >
             <form onSubmit={submit} className="glass rounded-3xl p-6 md:p-8 soft-border relative overflow-hidden">
               {/* Gradient accent */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-emerald-500" />
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-med-500 via-emerald-500 to-med-400" />
               
               <div className="space-y-5">
                 {/* Name */}
@@ -176,8 +176,8 @@ export default function BookingForm({ variant = 'dark' }: { variant?: 'light' | 
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     className={`w-full px-4 py-3.5 rounded-xl bg-slate-900/60 border ${
-                      errors.name ? 'border-rose-500 focus:border-rose-500' : 'border-slate-700 focus:border-indigo-500'
-                    } text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/25 transition-all`}
+                       errors.name ? 'border-rose-500 focus:border-rose-500' : 'border-slate-700 focus:border-med-500'
+                     } text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-med-500/25 transition-all`}
                   />
                   {errors.name && (
                     <p className="mt-1.5 text-sm text-rose-400 flex items-center gap-1">
@@ -197,8 +197,8 @@ export default function BookingForm({ variant = 'dark' }: { variant?: 'light' | 
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     className={`w-full px-4 py-3.5 rounded-xl bg-slate-900/60 border ${
-                      errors.phone ? 'border-rose-500 focus:border-rose-500' : 'border-slate-700 focus:border-indigo-500'
-                    } text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/25 transition-all`}
+                       errors.phone ? 'border-rose-500 focus:border-rose-500' : 'border-slate-700 focus:border-med-500'
+                     } text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-med-500/25 transition-all`}
                   />
                   {errors.phone && (
                     <p className="mt-1.5 text-sm text-rose-400 flex items-center gap-1">
@@ -217,9 +217,9 @@ export default function BookingForm({ variant = 'dark' }: { variant?: 'light' | 
                       type="date"
                       value={date}
                       onChange={(e) => setDate(e.target.value)}
-                      className={`w-full px-4 py-3.5 rounded-xl bg-slate-900/60 border ${
-                        errors.date ? 'border-rose-500 focus:border-rose-500' : 'border-slate-700 focus:border-indigo-500'
-                      } text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/25 transition-all`}
+                    className={`w-full px-4 py-3.5 rounded-xl bg-slate-900/60 border ${
+                         errors.date ? 'border-rose-500 focus:border-rose-500' : 'border-slate-700 focus:border-med-500'
+                       } text-white focus:outline-none focus:ring-2 focus:ring-med-500/25 transition-all`}
                     />
                     {errors.date && (
                       <p className="mt-1.5 text-sm text-rose-400">{errors.date}</p>
@@ -232,7 +232,7 @@ export default function BookingForm({ variant = 'dark' }: { variant?: 'light' | 
                     <select
                       value={time}
                       onChange={(e) => setTime(e.target.value)}
-                      className="w-full px-4 py-3.5 rounded-xl bg-slate-900/60 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/25 transition-all appearance-none cursor-pointer"
+                      className="w-full px-4 py-3.5 rounded-xl bg-slate-900/60 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-med-500/25 transition-all appearance-none cursor-pointer"
                       style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center', backgroundSize: '20px' }}
                     >
                       <option value="09:00">09:00</option>
@@ -273,7 +273,7 @@ export default function BookingForm({ variant = 'dark' }: { variant?: 'light' | 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-600 text-white font-semibold shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:scale-[1.02] transition-all disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+                  className="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-med-600 via-med-500 to-med-600 text-white font-semibold shadow-lg shadow-med-500/25 hover:shadow-med-500/40 hover:scale-[1.02] transition-all disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-3"
                 >
                   {loading ? (
                     <>

@@ -34,13 +34,13 @@ export default function CookieConsent() {
               <p>
                 🍪 Nous utilisons des cookies pour améliorer votre expérience et analyser le trafic. 
                 En continuant à utiliser ce site, vous acceptez notre 
-                <a href="/privacy" className="text-indigo-400 hover:underline ml-1">politique de confidentialité</a>.
+                <a href="/privacy" className="text-med-400 hover:underline ml-1">politique de confidentialité</a>.
               </p>
             </div>
             <div className="flex items-center gap-3 shrink-0">
               <button 
                 onClick={accept}
-                className="px-5 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition"
+                className="px-5 py-2 bg-med-600 text-white rounded-lg font-medium hover:bg-med-700 transition"
               >
                 Accepter
               </button>

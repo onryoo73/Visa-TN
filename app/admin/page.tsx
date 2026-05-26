@@ -231,7 +231,7 @@ export default function AdminPage() {
                   value={tokenInput}
                   onChange={(e) => setTokenInput(e.target.value)}
                   type="password"
-                  className="border border-slate-700 bg-slate-900/80 text-slate-100 text-sm px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500/70"
+                    className="border border-slate-700 bg-slate-900/80 text-slate-100 text-sm px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-med-500/70"
                 />
                 <button
                   onClick={saveToken}
@@ -256,13 +256,13 @@ export default function AdminPage() {
                 <input
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  placeholder="Search by name, phone, date, time…"
-                  className="border border-slate-700 bg-slate-900/80 text-sm px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500/70 w-56"
+                    placeholder="Search by name, phone, date, time…"
+                  className="border border-slate-700 bg-slate-900/80 text-sm px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-med-500/70 w-56"
                 />
                 <select
                   value={filter}
                   onChange={(e) => setFilter(e.target.value)}
-                  className="border border-slate-700 bg-slate-900/80 text-sm px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500/70"
+                  className="border border-slate-700 bg-slate-900/80 text-sm px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-med-500/70"
                 >
                   <option value="all">All statuses</option>
                   <option value="pending">Pending</option>
@@ -273,9 +273,9 @@ export default function AdminPage() {
               </div>
               <button
                 onClick={fetchAppointments}
-                className="inline-flex items-center gap-1 bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-2 rounded-md text-xs font-medium transition-colors"
+                className="inline-flex items-center gap-1 bg-med-600 hover:bg-med-700 text-white px-3 py-2 rounded-md text-xs font-medium transition-colors"
               >
-                <span className="h-1.5 w-1.5 rounded-full bg-indigo-200 animate-pulse" />
+                <span className="h-1.5 w-1.5 rounded-full bg-med-200 animate-pulse" />
                 Refresh
               </button>
             </div>
@@ -283,7 +283,7 @@ export default function AdminPage() {
 
           {loading ? (
             <div className="px-6 py-10 flex flex-col items-center justify-center gap-2 text-slate-400">
-              <div className="h-10 w-10 border-2 border-slate-700 border-t-indigo-500 rounded-full animate-spin" />
+              <div className="h-10 w-10 border-2 border-slate-700 border-t-med-500 rounded-full animate-spin" />
               <p className="text-sm">Loading appointments…</p>
             </div>
           ) : (
@@ -343,7 +343,7 @@ export default function AdminPage() {
                           <button
                             onClick={() => toggleConfirm(a)}
                             disabled={actionLoading === a._id}
-                            className="px-3 py-1.5 rounded-md text-xs font-medium bg-indigo-600 hover:bg-indigo-700 text-white transition-colors disabled:opacity-50"
+                            className="px-3 py-1.5 rounded-md text-xs font-medium bg-med-600 hover:bg-med-700 text-white transition-colors disabled:opacity-50"
                           >
                             {a.status === 'confirmed' ? 'Unconfirm' : 'Confirm'}
                           </button>
@@ -352,7 +352,7 @@ export default function AdminPage() {
                             value={a.status}
                             onChange={(e) => changeStatus(a._id, e.target.value)}
                             disabled={actionLoading === a._id}
-                            className="border border-slate-700 bg-slate-950/80 text-slate-100 px-2 py-1.5 rounded-md text-xs focus:outline-none focus:ring-2 focus:ring-indigo-500/70"
+                            className="border border-slate-700 bg-slate-950/80 text-slate-100 px-2 py-1.5 rounded-md text-xs focus:outline-none focus:ring-2 focus:ring-med-500/70"
                           >
                             <option value="pending">pending</option>
                             <option value="confirmed">confirmed</option>

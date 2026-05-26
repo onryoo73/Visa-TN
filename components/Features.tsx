@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 const features = [
   {title: 'Consultation complète', desc: 'Examen bucco-dentaire complet avec diagnostic personnalisé et plan de traitement.', icon: '🦷'},
-  {title: 'SoinsModernes', desc: 'Équipement de dernière génération pour des soins précis, rapides et confortables.', icon: '⚕️'},
+  {title: 'Soins modernes', desc: 'Équipement de dernière génération pour des soins précis, rapides et confortables.', icon: '⚕️'},
   {title: 'Hygiène irréprochable', desc: 'Matériel stérilisé et protocoles d\'hygiène stricts pour votre sécurité.', icon: '🧼'},
   {title: 'Suivi personnalisé', desc: 'Nous restons à votre disposition après la consultation pour tout suivi nécessaire.', icon: '📲'}
 ]

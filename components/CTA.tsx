@@ -47,7 +47,7 @@ export default function CTA(){
 
             <ul className="mt-6 grid gap-3">
               <li className="flex gap-3 items-start">
-                <div className="flex-none w-10 h-10 rounded-lg bg-indigo-600/20 text-indigo-400 flex items-center justify-center font-semibold">🦷</div>
+                <div className="flex-none w-10 h-10 rounded-lg bg-med-600/20 text-med-400 flex items-center justify-center font-semibold">🦷</div>
                 <div>
                   <strong className="text-white">Soins complets</strong>
                   <div className="text-slate-300 text-sm">Consultation, détartrage, blanchiment, caries et urgences.</div>
@@ -84,31 +84,31 @@ export default function CTA(){
             <form onSubmit={handleSubmit} className="mt-6 space-y-4" aria-live="polite">
               <div>
                 <label className="text-sm text-slate-200">Nom</label>
-                <input value={name} onChange={e=>setName(e.target.value)} className={`mt-1 w-full px-4 py-3 rounded-xl bg-slate-900/60 border ${errors.name? 'border-red-500':'border-slate-700'} text-white focus:outline-none focus:ring-2 focus:ring-indigo-500`} />
+                <input value={name} onChange={e=>setName(e.target.value)} className={`mt-1 w-full px-4 py-3 rounded-xl bg-slate-900/60 border ${errors.name? 'border-red-500':'border-slate-700'} text-white focus:outline-none focus:ring-2 focus:ring-med-500`} />
                 {errors.name && <div className="mt-1 text-red-400 text-sm">{errors.name}</div>}
               </div>
 
               <div>
                 <label className="text-sm text-slate-200">Email</label>
-                <input value={email} onChange={e=>setEmail(e.target.value)} type="email" className={`mt-1 w-full px-4 py-3 rounded-xl bg-slate-900/60 border ${errors.email? 'border-red-500':'border-slate-700'} text-white focus:outline-none focus:ring-2 focus:ring-indigo-500`} />
+                <input value={email} onChange={e=>setEmail(e.target.value)} type="email" className={`mt-1 w-full px-4 py-3 rounded-xl bg-slate-900/60 border ${errors.email? 'border-red-500':'border-slate-700'} text-white focus:outline-none focus:ring-2 focus:ring-med-500`} />
                 {errors.email && <div className="mt-1 text-red-400 text-sm">{errors.email}</div>}
               </div>
 
               <div>
                 <label className="text-sm text-slate-200">Téléphone (optionnel)</label>
-                <input value={phone} onChange={e=>setPhone(e.target.value)} className="mt-1 w-full px-4 py-3 rounded-xl bg-slate-900/60 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+                <input value={phone} onChange={e=>setPhone(e.target.value)} className="mt-1 w-full px-4 py-3 rounded-xl bg-slate-900/60 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-med-500" />
               </div>
 
               <div>
                 <label className="text-sm text-slate-200">Message</label>
-                <textarea value={message} onChange={e=>setMessage(e.target.value)} rows={4} className={`mt-1 w-full px-4 py-3 rounded-xl bg-slate-900/60 border ${errors.message? 'border-red-500':'border-slate-700'} text-white focus:outline-none focus:ring-2 focus:ring-indigo-500`} />
+                <textarea value={message} onChange={e=>setMessage(e.target.value)} rows={4} className={`mt-1 w-full px-4 py-3 rounded-xl bg-slate-900/60 border ${errors.message? 'border-red-500':'border-slate-700'} text-white focus:outline-none focus:ring-2 focus:ring-med-500`} />
                 {errors.message && <div className="mt-1 text-red-400 text-sm">{errors.message}</div>}
               </div>
 
               <input className="hidden" name="company" tabIndex={-1} aria-hidden={true} />
 
               <div className="flex items-center gap-3">
-                <button type="submit" disabled={loading} className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold shadow-md hover:scale-[1.01] transition-transform disabled:opacity-60">
+                <button type="submit" disabled={loading} className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-gradient-to-r from-med-600 to-med-500 text-white font-semibold shadow-md hover:scale-[1.01] transition-transform disabled:opacity-60">
                   {loading ? <span className="animate-pulse">Envoi...</span> : 'Envoyer'}
                 </button>
                 <div className="text-sm text-slate-300">Nous respectons votre vie privée — réponse sous 24h.</div>

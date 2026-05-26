@@ -63,7 +63,7 @@ export default function ReviewForm() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Your name"
-            className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-base text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/40"
+            className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-base text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-med-500/40"
           />
           <textarea
             value={quote}
@@ -95,7 +95,7 @@ export default function ReviewForm() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-3 text-base font-semibold disabled:opacity-50 flex items-center justify-center gap-2 shadow-md mt-2"
+            className="w-full rounded-xl bg-med-600 hover:bg-med-700 text-white px-4 py-3 text-base font-semibold disabled:opacity-50 flex items-center justify-center gap-2 shadow-md mt-2"
           >
             {loading ? (
               <>

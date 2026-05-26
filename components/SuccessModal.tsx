@@ -77,7 +77,7 @@ export default function SuccessModal({ isOpen, onClose, name }: SuccessModalProp
           >
             <div
               className={`w-full h-full rounded-sm ${
-                ["bg-indigo-500", "bg-purple-500", "bg-emerald-500", "bg-amber-400", "bg-pink-500"][
+                ["bg-med-500", "bg-teal-500", "bg-emerald-500", "bg-amber-400", "bg-cyan-500"][
                   particle.id % 5
                 ]
               }`}
@@ -103,13 +103,13 @@ export default function SuccessModal({ isOpen, onClose, name }: SuccessModalProp
             <svg className="absolute inset-0 w-full h-full opacity-10">
               <defs>
                 <pattern id="circuit" width="40" height="40" patternUnits="userSpaceOnUse">
-                  <circle cx="20" cy="20" r="2" fill="currentColor" className="text-indigo-400" />
+                  <circle cx="20" cy="20" r="2" fill="currentColor" className="text-med-400" />
                   <path
                     d="M20 20 L20 0 M20 20 L40 20 M20 20 L20 40 M20 20 L0 20"
                     stroke="currentColor"
                     strokeWidth="1"
                     fill="none"
-                    className="text-indigo-400"
+                    className="text-med-400"
                   />
                 </pattern>
               </defs>
@@ -120,7 +120,7 @@ export default function SuccessModal({ isOpen, onClose, name }: SuccessModalProp
           {/* Main Card */}
           <div className="relative glass rounded-3xl p-8 soft-border overflow-hidden">
             {/* Animated Gradient Border */}
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-indigo-500 via-purple-500 to-emerald-500 opacity-20 animate-pulse" />
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-med-500 via-teal-500 to-emerald-500 opacity-20 animate-pulse" />
 
             {/* Success Icon with Animation */}
             <motion.div
@@ -138,13 +138,13 @@ export default function SuccessModal({ isOpen, onClose, name }: SuccessModalProp
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 rounded-full border-4 border-dashed border-indigo-500/30"
+                className="absolute inset-0 rounded-full border-4 border-dashed border-med-500/30"
               />
               {/* Inner Ring */}
               <motion.div
                 animate={{ rotate: -360 }}
                 transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-2 rounded-full border-4 border-dotted border-purple-500/30"
+                className="absolute inset-2 rounded-full border-4 border-dotted border-teal-500/30"
               />
               {/* Center Checkmark */}
               <div className="absolute inset-4 rounded-full bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center shadow-lg shadow-emerald-500/30">
@@ -204,11 +204,11 @@ export default function SuccessModal({ isOpen, onClose, name }: SuccessModalProp
                 <p className="text-sm text-slate-400 mb-2">Prochaines étapes:</p>
                 <ul className="text-sm text-slate-300 space-y-2 text-left">
                   <li className="flex items-center gap-2">
-                    <span className="w-6 h-6 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-xs font-bold">1</span>
+                    <span className="w-6 h-6 rounded-full bg-med-500/20 text-med-400 flex items-center justify-center text-xs font-bold">1</span>
                     Nous vous contactons sous 24h pour confirmer
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center text-xs font-bold">2</span>
+                    <span className="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 flex items-center justify-center text-xs font-bold">2</span>
                     Nous fixons l&apos;heure exacte du rendez-vous
                   </li>
                   <li className="flex items-center gap-2">
@@ -236,9 +236,9 @@ export default function SuccessModal({ isOpen, onClose, name }: SuccessModalProp
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={onClose}
-              className="w-full mt-6 py-3 px-6 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 transition-all"
+              className="w-full mt-6 py-3 px-6 rounded-xl bg-gradient-to-r from-med-600 to-med-500 text-white font-semibold shadow-lg shadow-med-500/25 hover:shadow-med-500/40 transition-all"
             >
-              Parfait, merci! 🚀
+              Parfait, merci!
             </motion.button>
 
             {/* Auto-close indicator */}
@@ -246,7 +246,7 @@ export default function SuccessModal({ isOpen, onClose, name }: SuccessModalProp
               initial={{ scaleX: 1 }}
               animate={{ scaleX: 0 }}
               transition={{ duration: 6, ease: "linear" }}
-              className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-indigo-500 origin-left"
+              className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-med-500 origin-left"
             />
           </div>
         </motion.div>

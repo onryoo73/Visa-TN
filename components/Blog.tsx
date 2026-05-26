@@ -75,7 +75,7 @@ export default function Blog() {
             >
               <div className="relative h-48 bg-slate-800 flex items-center justify-center">
                 <div className="text-4xl">🦷</div>
-                <span className="absolute top-4 left-4 px-3 py-1 bg-indigo-600 text-white text-xs font-medium rounded-full">
+                <span className="absolute top-4 left-4 px-3 py-1 bg-med-600 text-white text-xs font-medium rounded-full">
                   {post.category}
                 </span>
               </div>
@@ -97,7 +97,7 @@ export default function Blog() {
 
                 <Link 
                   href={`/blog/${post.slug}`}
-                  className="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 text-sm font-medium transition"
+                  className="inline-flex items-center gap-2 text-med-400 hover:text-med-300 text-sm font-medium transition"
                 >
                   Lire la suite
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -125,7 +125,7 @@ export default function Blog() {
             </p>
             <Link 
               href="/booking"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-indigo-500/25 transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-med-600 to-med-500 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-med-500/25 transition-all"
             >
               Prendre rendez-vous
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

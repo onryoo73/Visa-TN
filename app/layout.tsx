@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 import { ReactNode } from 'react'
 import SchemaMarkup from '../components/SchemaMarkup'
+import Navbar from '../components/Navbar'
 import { Analytics } from '@vercel/analytics/next';
 
 export const metadata = {
@@ -29,9 +30,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="fr">
       <head>
         <SchemaMarkup />
-        {/* Favicon is now handled by metadata */}
       </head>
       <body className="antialiased">
+        <Navbar />
         <main className="min-h-screen">
           {children}
           <Analytics />

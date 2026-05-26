@@ -9,8 +9,8 @@ export default function BookingPage(){
     <div className="relative min-h-screen bg-zinc-950">
       {/* Background gradients */}
       <div className="pointer-events-none fixed inset-0 opacity-40">
-        <div className="absolute -top-24 -left-16 h-64 w-64 rounded-full bg-indigo-500/20 blur-3xl" />
-        <div className="absolute top-40 -right-10 h-72 w-72 rounded-full bg-sky-500/16 blur-3xl" />
+        <div className="absolute -top-24 -left-16 h-64 w-64 rounded-full bg-med-500/20 blur-3xl" />
+        <div className="absolute top-40 -right-10 h-72 w-72 rounded-full bg-teal-500/16 blur-3xl" />
       </div>
 
       {/* Header */}

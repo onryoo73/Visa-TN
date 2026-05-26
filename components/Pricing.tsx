@@ -23,9 +23,9 @@ export default function Pricing() {
           initial={{opacity: 0, y: 20}} 
           whileInView={{opacity: 1, y: 0}} 
           viewport={{once: true}}
-          className="glass rounded-3xl p-8 md:p-12 border-2 border-indigo-500/30 relative overflow-hidden"
+          className="glass rounded-3xl p-8 md:p-12 border-2 border-med-500/30 relative overflow-hidden"
         >
-          <div className="absolute top-0 right-0 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-sm font-semibold px-4 py-1 rounded-bl-xl">
+          <div className="absolute top-0 right-0 bg-gradient-to-r from-med-600 to-med-500 text-white text-sm font-semibold px-4 py-1 rounded-bl-xl">
             CONSULTATION
           </div>
 
@@ -41,7 +41,7 @@ export default function Pricing() {
 
               <a 
                 href="/booking" 
-                className="inline-flex items-center px-8 py-4 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold text-lg shadow-lg shadow-indigo-500/25 hover:scale-105 transition"
+                className="inline-flex items-center px-8 py-4 rounded-2xl bg-gradient-to-r from-med-600 to-med-500 text-white font-semibold text-lg shadow-lg shadow-med-500/25 hover:scale-105 transition"
               >
                 Prendre rendez-vous
                 <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
