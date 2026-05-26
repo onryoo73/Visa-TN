@@ -11,6 +11,7 @@ const rateLimit = require('express-rate-limit');
 const connectDB = require('./config/db');
 const appointmentsRouter = require('./routes/appointments');
 const reviewsRouter = require('./routes/reviews');
+const postsRouter = require('./routes/posts');
 const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
@@ -49,6 +50,7 @@ connectDB(MONGODB_URI);
 // Routes
 app.use('/api/appointments', appointmentsRouter);
 app.use('/api/reviews', reviewsRouter);
+app.use('/api/posts', postsRouter);
 
 // Health check
 app.get('/health', (req, res) => res.json({ success: true, uptime: process.uptime() }));
