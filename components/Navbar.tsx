@@ -24,6 +24,9 @@ export default function Navbar() {
             <Link href="/#features" className="text-sm text-slate-400 hover:text-med-400 transition">
               {lang === 'fr' ? 'Services' : 'Services'}
             </Link>
+            <Link href="/blog" className="text-sm text-slate-400 hover:text-med-400 transition">
+              Blog
+            </Link>
             <Link href="/booking" className="text-sm text-slate-400 hover:text-med-400 transition">
               {lang === 'fr' ? 'Rendez-vous' : 'Booking'}
             </Link>
@@ -70,6 +73,9 @@ export default function Navbar() {
           >
             <Link href="/#features" onClick={() => setMobileOpen(false)} className="block text-sm text-slate-400 hover:text-med-400 transition py-2">
               {lang === 'fr' ? 'Services' : 'Services'}
+            </Link>
+            <Link href="/blog" onClick={() => setMobileOpen(false)} className="block text-sm text-slate-400 hover:text-med-400 transition py-2">
+              Blog
             </Link>
             <Link href="/booking" onClick={() => setMobileOpen(false)} className="block text-sm text-slate-400 hover:text-med-400 transition py-2">
               {lang === 'fr' ? 'Rendez-vous' : 'Booking'}

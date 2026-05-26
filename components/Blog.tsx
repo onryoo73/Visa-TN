@@ -134,6 +134,18 @@ export default function Blog() {
             </Link>
           </div>
         </motion.div>
+
+        <div className="text-center mt-8">
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-2 text-sm text-med-400 hover:text-med-300 transition font-medium"
+          >
+            Voir tous les articles
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
+        </div>
       </div>
     </section>
   );
