@@ -1,13 +1,31 @@
 "use client"
+import { useCallback } from 'react'
 import { useState } from 'react'
 import Link from 'next/link'
+import { useRouter, usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
 
 export default function Navbar() {
   const [lang, setLang] = useState<'fr' | 'en'>('fr')
   const [mobileOpen, setMobileOpen] = useState(false)
+  const router = useRouter()
+  const pathname = usePathname()
 
   const toggleLang = () => setLang(l => l === 'fr' ? 'en' : 'fr')
+
+  const handleHashClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
+    e.preventDefault()
+    setMobileOpen(false)
+    if (pathname === '/') {
+      const el = document.getElementById(hash)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' })
+        history.pushState(null, '', `/#${hash}`)
+      }
+    } else {
+      router.push(`/#${hash}`)
+    }
+  }, [pathname, router])
 
   return (
     <nav className="relative z-50 border-b border-white/5 bg-zinc-950/80 backdrop-blur-md">
@@ -21,18 +39,18 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
-            <Link href="/#features" className="text-sm text-slate-400 hover:text-med-400 transition">
+            <a href="/#features" onClick={e => handleHashClick(e, 'features')} className="text-sm text-slate-400 hover:text-med-400 transition">
               {lang === 'fr' ? 'Services' : 'Services'}
-            </Link>
+            </a>
             <Link href="/blog" className="text-sm text-slate-400 hover:text-med-400 transition">
               Blog
             </Link>
             <Link href="/booking" className="text-sm text-slate-400 hover:text-med-400 transition">
               {lang === 'fr' ? 'Rendez-vous' : 'Booking'}
             </Link>
-            <Link href="/#faq" className="text-sm text-slate-400 hover:text-med-400 transition">
+            <a href="/#faq" onClick={e => handleHashClick(e, 'faq')} className="text-sm text-slate-400 hover:text-med-400 transition">
               FAQ
-            </Link>
+            </a>
 
             <button
               onClick={toggleLang}
@@ -71,18 +89,18 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             className="md:hidden pb-4 border-t border-white/5 pt-4 space-y-3"
           >
-            <Link href="/#features" onClick={() => setMobileOpen(false)} className="block text-sm text-slate-400 hover:text-med-400 transition py-2">
+            <a href="/#features" onClick={e => { handleHashClick(e, 'features') }} className="block text-sm text-slate-400 hover:text-med-400 transition py-2">
               {lang === 'fr' ? 'Services' : 'Services'}
-            </Link>
+            </a>
             <Link href="/blog" onClick={() => setMobileOpen(false)} className="block text-sm text-slate-400 hover:text-med-400 transition py-2">
               Blog
             </Link>
             <Link href="/booking" onClick={() => setMobileOpen(false)} className="block text-sm text-slate-400 hover:text-med-400 transition py-2">
               {lang === 'fr' ? 'Rendez-vous' : 'Booking'}
             </Link>
-            <Link href="/#faq" onClick={() => setMobileOpen(false)} className="block text-sm text-slate-400 hover:text-med-400 transition py-2">
+            <a href="/#faq" onClick={e => { handleHashClick(e, 'faq') }} className="block text-sm text-slate-400 hover:text-med-400 transition py-2">
               FAQ
-            </Link>
+            </a>
 
             <div className="flex items-center gap-4 pt-2">
               <button
