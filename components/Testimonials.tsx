@@ -32,7 +32,7 @@ export default function Testimonials() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-14">
           <h2 className="text-3xl font-bold text-white mb-4">Avis des clients</h2>
-          <p className="text-white text-lg mb-6">Découvrez ce que nos clients pensent de leur expérience avec VCard</p>
+          <p className="text-white text-lg mb-6">Découvrez ce que nos patients disent de leur expérience chez DocTN</p>
         </div>
         {loading ? (
           <div className="mt-6 flex justify-center py-8">

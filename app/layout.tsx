@@ -4,9 +4,9 @@ import SchemaMarkup from '../components/SchemaMarkup'
 import { Analytics } from '@vercel/analytics/next';
 
 export const metadata = {
-  title: 'vCardTN — Carte Virtuelle Internationale & Visa Guide',
-  description: 'vCardTN - Guide premium pour paiement en ligne et activation mondiale de cartes virtuelles.',
-  keywords: ['vcardtn', 'carte virtuelle', 'visa', 'paiement en ligne', 'carte bancaire virtuelle', 'carte prepaid tunisie', 'carte internationale tunisie', 'flouci', 'd17', 'achat en ligne tunisie', 'netflix tunisie', 'carte virtuelle tunisie'],
+  title: 'DocTN — Cabinet Dentaire & Soins Dentaires en Tunisie',
+  description: 'DocTN - Soins dentaires professionnels en Tunisie. Consultation, détartrage, blanchiment et soins pour toute la famille.',
+  keywords: ['doctn', 'cabinet dentaire', 'dentiste tunisie', 'soins dentaires', 'détartrage', 'blanchiment dentaire', 'consultation dentaire', 'rendez-vous dentiste', 'tunisie dentiste'],
   verification: {
     google: '4351bPzEinu_WuQr1MI8Mt2oWTEgR_PGbPmpSmzm-OY',
   },

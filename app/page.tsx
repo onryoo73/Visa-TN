@@ -4,8 +4,6 @@ import HowItWorks from '../components/HowItWorks'
 import Testimonials from '../components/Testimonials'
 import ReviewForm from '../components/ReviewForm'
 import FAQ from '../components/FAQ'
-import Pricing from '../components/Pricing'
-import TopUp from '../components/TopUp'
 import Blog from '../components/Blog'
 import Footer from '../components/Footer'
 import WhatsAppWidget from '../components/WhatsAppWidget'
@@ -18,8 +16,6 @@ export default function Page(){
       <main className="max-w-6xl mx-auto px-6 sm:px-8">
         <Features />
         <HowItWorks />
-        <Pricing />
-        <TopUp />
         
         <div className="mt-16">
           <Testimonials />
@@ -28,6 +24,7 @@ export default function Page(){
           <ReviewForm />
         </div>
         <FAQ />
+        <Blog />
       </main>
       <Footer />
       <WhatsAppWidget />

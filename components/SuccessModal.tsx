@@ -183,7 +183,7 @@ export default function SuccessModal({ isOpen, onClose, name }: SuccessModalProp
                 transition={{ delay: 0.5, type: "spring" }}
                 className="text-2xl md:text-3xl font-bold text-white"
               >
-                🎉 Félicitations {name}!
+                🎉 Merci {name}!
               </motion.h3>
 
               <motion.p
@@ -192,7 +192,7 @@ export default function SuccessModal({ isOpen, onClose, name }: SuccessModalProp
                 transition={{ delay: 0.6 }}
                 className="text-slate-300"
               >
-                Ton rendez-vous est confirmé!
+                Votre demande de rendez-vous a été envoyée!
               </motion.p>
 
               <motion.div
@@ -205,15 +205,15 @@ export default function SuccessModal({ isOpen, onClose, name }: SuccessModalProp
                 <ul className="text-sm text-slate-300 space-y-2 text-left">
                   <li className="flex items-center gap-2">
                     <span className="w-6 h-6 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-xs font-bold">1</span>
-                    Je te contacte sous 24h pour confirmer
+                    Nous vous contactons sous 24h pour confirmer
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center text-xs font-bold">2</span>
-                    On fixe l&apos;heure exacte de l&apos;appel
+                    Nous fixons l&apos;heure exacte du rendez-vous
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs font-bold">3</span>
-                    Tu paies 100 TND le jour J via Flouci/D17
+                    Vous venez au cabinet pour votre consultation
                   </li>
                 </ul>
               </motion.div>
@@ -224,7 +224,7 @@ export default function SuccessModal({ isOpen, onClose, name }: SuccessModalProp
                 transition={{ delay: 0.8 }}
                 className="text-xs text-slate-500 mt-4"
               >
-                Un email de confirmation t&apos;est envoyé 📧
+                Un email de confirmation vous sera envoyé 📧
               </motion.p>
             </motion.div>
 

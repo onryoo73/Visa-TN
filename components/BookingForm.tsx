@@ -16,24 +16,24 @@ export default function BookingForm({ variant = 'dark' }: { variant?: 'light' | 
   const [submittedName, setSubmittedName] = useState('');
 
   const t = {
-    title: 'Réserver mon appel',
-    subtitle: 'En 1 min. Je te recontacte pour confirmer l\'heure de l\'appel.',
+    title: 'Prendre rendez-vous',
+    subtitle: 'En 1 min. Choisissez votre créneau et nous vous confirmons rapidement.',
     nameLabel: 'Nom complet',
     namePlaceholder: 'Ex: Ahmed Ben Ali',
     phoneLabel: 'Téléphone',
     phonePlaceholder: '+216 12 345 678',
-    dateLabel: 'Date qui t\'arrange',
+    dateLabel: 'Date souhaitée',
     timeLabel: 'Heure préférée',
     submit: 'Réserver mon créneau',
     submitting: 'Envoi en cours...',
-    success: '✓ C\'est envoyé ! Je te recontacte rapidement pour confirmer.',
-    errorGeneric: 'Une erreur s\'est produite. Réessaie ou contacte-moi directement.',
-    errorNetwork: 'Problème de connexion. Réessaie.',
-    footer: 'Paiement de 100 TND le jour de l\'appel. Remboursement garanti si on n\'avance pas.',
-    errName: 'Merci de mettre ton nom.',
-    errPhone: 'Merci de mettre ton numéro.',
-    errDate: 'Choisis une date.',
-    errTime: 'Choisis une heure.',
+    success: '✓ C\'est envoyé ! Nous vous recontactons rapidement pour confirmer.',
+    errorGeneric: 'Une erreur s\'est produite. Réessayez ou contactez-nous directement.',
+    errorNetwork: 'Problème de connexion. Réessayez.',
+    footer: 'Consultation à 50 TND payable sur place. Annulation gratuite.',
+    errName: 'Merci de mettre votre nom.',
+    errPhone: 'Merci de mettre votre numéro.',
+    errDate: 'Choisissez une date.',
+    errTime: 'Choisissez une heure.',
   };
 
   const validate = () => {
@@ -85,9 +85,9 @@ export default function BookingForm({ variant = 'dark' }: { variant?: 'light' | 
   };
 
   const benefits = [
-    { icon: '🎧', text: 'Appel 1:1 personnalisé' },
-    { icon: '⚡', text: 'Configuration en 30-45 min' },
-    { icon: '🛡️', text: 'Garantie satisfait ou remboursé' },
+    { icon: '🦷', text: 'Consultation dentaire complète' },
+    { icon: '⚕️', text: 'Soins avec équipement moderne' },
+    { icon: '🧼', text: 'Hygiène et sécurité garanties' },
   ];
 
   return (
@@ -139,19 +139,16 @@ export default function BookingForm({ variant = 'dark' }: { variant?: 'light' | 
                 <span className="text-2xl">💰</span>
                 <span className="text-white font-semibold">Tarif transparent</span>
               </div>
-              <div className="text-3xl font-bold text-white mb-1">100 TND</div>
-              <p className="text-slate-400 text-sm">Une seule fois. Pas d&apos;abonnement caché.</p>
+              <div className="text-3xl font-bold text-white mb-1">50 TND</div>
+              <p className="text-slate-400 text-sm">Consultation générale. Paiement sur place.</p>
             </div>
 
             <div className="glass rounded-2xl p-6 soft-border">
               <div className="flex items-center gap-3 mb-3">
-                <span className="text-2xl">📱</span>
-                <span className="text-white font-semibold">Paiement facile</span>
+                <span className="text-2xl">📍</span>
+                <span className="text-white font-semibold">Cabinet moderne</span>
               </div>
-              <div className="flex items-center gap-3">
-                <img src="/flouci.png" alt="Flouci" className="h-8 w-auto opacity-90" />
-                <img src="/d17.png" alt="D17" className="h-8 w-auto opacity-90" />
-              </div>
+              <p className="text-slate-300 text-sm">Équipement de pointe, hygiène stricte, accueil chaleureux.</p>
             </div>
           </motion.div>
 

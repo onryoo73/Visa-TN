@@ -2,15 +2,15 @@
 import { motion } from 'framer-motion'
 
 const steps = [
-  {title: 'Réserve ton créneau', desc: 'Choisis la date et l’heure qui t’arrangent pour l’appel.'},
-  {title: 'Appel en direct avec moi', desc: 'On partage l’écran, on configure ta carte et tes comptes ensemble.'},
-  {title: 'Tu appliques & tu encaisse', desc: 'À la fin de l’appel, tout est prêt pour payer et recevoir sans blocage.'}
+  {title: 'Réservez votre RDV', desc: 'Choisissez la date et l\'heure qui vous arrangent via notre formulaire en ligne.'},
+  {title: 'Consultation au cabinet', desc: 'Nous vous accueillons dans notre cabinet pour un examen complet et personnalisé.'},
+  {title: 'Traitement & suivi', desc: 'Nous établissons votre plan de soins et assurons le suivi après chaque visite.'}
 ]
 
 export default function HowItWorks(){
   return (
     <section className="py-16">
-      <h2 className="text-2xl font-semibold">Comment se passe l’appel</h2>
+      <h2 className="text-2xl font-semibold">Comment ça marche</h2>
       <div className="mt-6 flex gap-6 overflow-x-auto py-4">
         {steps.map((s, i) => (
           <motion.div key={s.title} initial={{opacity:0, y:20}} whileInView={{opacity:1, y:0}} viewport={{once:true}} transition={{delay:i*0.12}} className="min-w-[260px] glass p-6 rounded-2xl soft-border">

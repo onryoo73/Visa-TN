@@ -1,6 +1,6 @@
-# Carte Virtuelle Internationale — Landing
+# DocTN — Cabinet Dentaire
 
-Next.js + TypeScript + TailwindCSS landing page scaffold for a premium fintech-style site.
+Next.js + TypeScript + TailwindCSS landing page for a modern dental clinic booking system.
 
 To run locally:
 

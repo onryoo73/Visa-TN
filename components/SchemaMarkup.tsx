@@ -1,43 +1,34 @@
 export default function SchemaMarkup() {
   const businessSchema = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "vCardTN - Activation de Carte Virtuelle",
-    "description": "Service d'accompagnement pour activation de cartes virtuelles en Tunisie. Paiements en ligne simplifiés.",
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": "vCardTN",
-      "url": "https://www.vcardtn.site",
-      "telephone": "+216123456789",
-      "email": "contact@vcardtn.site",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "TN",
-        "addressLocality": "Tunis"
-      },
-      "priceRange": "$",
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-          "opens": "09:00",
-          "closes": "18:00"
-        }
-      ]
+    "@type": "MedicalBusiness",
+    "subtype": "Dentist",
+    "name": "DocTN - Cabinet Dentaire",
+    "description": "Cabinet dentaire moderne en Tunisie. Consultation, détartrage, blanchiment et soins dentaires.",
+    "url": "https://www.doctn.tn",
+    "telephone": "+216123456789",
+    "email": "contact@doctn.tn",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "TN",
+      "addressLocality": "Tunis"
     },
+    "priceRange": "$$",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    ],
     "areaServed": {
       "@type": "Country",
       "name": "Tunisia"
     },
-    "offers": {
-      "@type": "Offer",
-      "price": "100",
-      "priceCurrency": "TND",
-      "availability": "https://schema.org/InStock"
-    },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.8",
+      "ratingValue": "4.9",
       "reviewCount": "8"
     }
   }
@@ -48,34 +39,34 @@ export default function SchemaMarkup() {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "C'est qui au bout du fil ?",
+        "name": "Comment se déroule une consultation ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "C'est moi en personne — pas un centre d'appel ni un bot. On fait l'appel ensemble, je te guide en direct et on configure ta carte étape par étape."
+          "text": "Vous arrivez au cabinet, nous faisons un examen complet de votre bouche, discutons de vos besoins et vous proposons un plan de traitement personnalisé. Comptez 30 à 45 minutes."
         }
       },
       {
         "@type": "Question",
-        "name": "Je paie quand ?",
+        "name": "Quels sont vos tarifs ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "100 TND, le jour de l'appel. Tu ne paies rien en remplissant le formulaire : tu réserves juste ton créneau, je te confirme, et on règle le jour J."
+          "text": "La consultation est à 50 TND. Le détartrage à 80 TND, le blanchiment à 250 TND, et les soins pour caries à partir de 100 TND. Paiement sur place par espèces ou carte."
         }
       },
       {
         "@type": "Question",
-        "name": "Et si ça ne marche pas ou j'ai un souci après ?",
+        "name": "Est-ce que je peux annuler mon rendez-vous ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Si à la fin de l'appel tu n'as pas pu avancer à cause de moi, je te rembourse. Si tu bloques plus tard, tu peux me recontacter et on débloque ensemble."
+          "text": "Oui, vous pouvez annuler ou modifier votre rendez-vous gratuitement jusqu'à 24h avant. Il suffit de nous contacter par WhatsApp."
         }
       },
       {
         "@type": "Question",
-        "name": "Ce que vous montrez marche avec Apple Pay / Google Pay ?",
+        "name": "Quels moyens de paiement acceptez-vous ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Oui — pendant l'appel on voit ensemble comment ajouter et activer ta carte sur ces services si tu les utilises."
+          "text": "Nous acceptons les espèces et les paiements par carte bancaire sur place."
         }
       }
     ]

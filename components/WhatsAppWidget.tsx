@@ -37,7 +37,7 @@ export default function WhatsAppWidget() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold">vCardTN Support</h4>
+                  <h4 className="text-white font-semibold">DocTN Support</h4>
                   <p className="text-emerald-100 text-sm">Réponse rapide garantie</p>
                 </div>
               </div>
@@ -46,14 +46,14 @@ export default function WhatsAppWidget() {
             {/* Body */}
             <div className="p-4 bg-gray-50">
               <div className="bg-white p-3 rounded-lg shadow-sm mb-3">
-                <p className="text-gray-700 text-sm">
-                  👋 Salut ! Une question sur les cartes virtuelles ? Je suis là pour t'aider !
-                </p>
+                  <p className="text-gray-700 text-sm">
+                    👋 Salut ! Une question sur nos soins dentaires ? Je suis là pour vous aider !
+                  </p>
                 <p className="text-gray-400 text-xs mt-1">Maintenant</p>
               </div>
 
               <a 
-                href="https://wa.me/216123456789?text=Salut%2C%20j'ai%20une%20question%20sur%20vCardTN"
+                href="https://wa.me/216123456789?text=Salut%2C%20j'ai%20une%20question%20sur%20DocTN"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full bg-emerald-500 text-white text-center py-3 rounded-xl font-semibold hover:bg-emerald-600 transition"

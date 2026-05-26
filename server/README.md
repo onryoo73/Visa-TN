@@ -21,8 +21,8 @@ To get instant phone notifications when someone books:
    ```
 
 4. You'll now receive instant notifications like:
-   > 🎉 **Nouveau rendez-vous vCardTN !**
-   > 👤 **Client:** Ahmed Ben Ali
+   > 🎉 **Nouveau rendez-vous DocTN !**
+   > 👤 **Patient:** Ahmed Ben Ali
    > 📞 **Téléphone:** +216 123456789
    > 📅 **Date:** lundi 20 mars 2026
    > ⏰ **Heure:** 14:30
